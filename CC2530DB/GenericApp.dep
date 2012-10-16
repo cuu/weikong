@@ -2489,7 +2489,7 @@
       <outputs>
         <tool>
           <name>ICC8051</name>
-          <file> 29 356 338</file>
+          <file> 356</file>
         </tool>
         <tool>
           <name>BICOMP</name>

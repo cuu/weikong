@@ -164,7 +164,7 @@ void parse_procotol(uint8*buff, uint8 len)
   uint8 logicalType;
   char pbuf[3];
   char pbuf1[3];
-  char pbuf2[12];
+  char pbuf2[65];
   
   uint16 tmp_ios;
   nwkActiveKeyItems keyItems;
@@ -259,6 +259,39 @@ void parse_procotol(uint8*buff, uint8 len)
 
       if( len == 2)
       {
+        if(buff[0] == 0x09)
+        {
+          if(buff[1] >= 0 && buff[1] <= 7)
+          {
+             tmp_ios = 0x0202 + buff[1];
+             if( osal_nv_item_init( tmp_ios, sizeof(uint8), NULL) == ZSUCCESS)
+             {
+               osal_nv_read(tmp_ios,0, sizeof(uint8),&pbuf[1]);
+               pbuf[0] = 0x09;
+               UART_Send_String( (uint8*)&pbuf, 2);
+             }else
+             {
+               uprint("osal_nv_item_init 0x09 failed");
+             }
+          }
+        }
+        if(buff[0] == 0x10)
+        {
+          if(buff[1] >= 0 && buff[1] <= 7)
+          {
+             tmp_ios = 0x0210 + buff[1];
+             if( osal_nv_item_init( tmp_ios, sizeof(uint8)*64, NULL) == ZSUCCESS)
+             {
+               osal_nv_read(tmp_ios,0, sizeof(uint8)*64,&pbuf2[1]);
+               pbuf[0] = 0x10;
+               UART_Send_String( (uint8*)&pbuf2, 65);
+             }else
+             {
+               uprint("osal_nv_item_init 0x10 failed");
+             }
+          }          
+        }
+        
         if( buff[0] == 0xcc )
         {
           if( buff[1] > 0x0a && buff[1] < 0x1b )
@@ -580,6 +613,9 @@ void parse_procotol(uint8*buff, uint8 len)
              if( osal_nv_item_init( tmp_ios, sizeof(uint8), NULL) == SUCCESS)
              {
                osal_nv_write(tmp_ios,0, sizeof(uint8),&buff[2]);
+             }else
+             {
+               uprint("osal_nv_item_init 0x09 failed");
              }
         }
       }
@@ -588,9 +624,12 @@ void parse_procotol(uint8*buff, uint8 len)
         if(buff[1] >= 0 && buff[1] <= 7)
         {
           tmp_ios = 0x0210 + buff[1];
-          if( osal_nv_item_init( tmp_ios, 64*8, NULL) == SUCCESS)
+          if( osal_nv_item_init( tmp_ios, 64*sizeof(uint8), NULL) == SUCCESS)
           {
             osal_nv_write(tmp_ios,0, sizeof(uint8)*buff[2],&buff[3]);
+          }else
+          {
+            uprint("osal_nv_item_init 0x10 failed");
           }
         }
       }
