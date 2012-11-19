@@ -43,11 +43,19 @@
 //#define HAL_KEY_SW_6_BIT    BV(1)
 //#define HAL_KEY_JOY_MOVE_BIT    BV(0)
 
+// From hal_key.c 
+extern uint8 FUCK_TI_KEY1; //
+extern uint8 FUCK_TI_KEY7;
+///-----------------------------
+
+
 uint16 devlist[ NWK_MAX_DEVICES + 1];
 uint8* ieeeAddr;
 uint16 short_ddr;
 uint16 panid;
+uint8 global_start; // This is about a flag for after event STATE_CHANGE,clear statement for staring usage.
 
+uint16 t3_counter;
 
 // This list should be filled with Application specific Cluster IDs.
 const cId_t GenericApp_ClusterList[GENERICAPP_MAX_CLUSTERS] =
@@ -797,6 +805,17 @@ void serial_init(void )
 
 }
 
+static void init_timer3_as_second_counter(void)
+{
+    T3CTL &= ~0x10;             // Stop timer 3 (if it was running)
+    T3CTL |= 0x04;              // Clear timer 3
+    T3CTL |= 0x08;             // enable Timer 3 overflow interrupts
+    T3CTL |= 0x00;              // Timer 3 mode = free-running mode,with overflowe interrupt
+    T3CTL |= 224; //  Tick frequency/128
+    T3IE = 1;  
+    
+}
+
 void io_init(void)
 {
     /* For falling edge, the bit must be set. */
@@ -808,14 +827,17 @@ void io_init(void)
     IEN1 |= BV(5);
     P0IFG = ~(HAL_KEY_SW_6_BIT);
 */
-  P0DIR &= ~0x01;
+ // P0DIR &= ~0x01;
   
-  P0DIR |= 0x80;
+ // P0DIR |= 0x80;
   
-  P0IFG &= ~0x01;
+ // P0IFG &= ~0x01;
+  P1DIR |= 0x03; 
+ // P0_7 = 1;
+  P1_1 = 0;
+  P1_0 = 0;
   
-  P0_7 = 1;
- 
+   
 }
 
 void set_panid( uint16 u16NewPanid)
@@ -881,6 +903,7 @@ void GenericApp_Init( uint8 task_id )
   
 //  zclSE_Init( &GenericApp_SimpleDesc );
   uint16 size;
+  
   
   GenericApp_TaskID = task_id;
   GenericApp_NwkState = DEV_INIT;
@@ -962,7 +985,7 @@ void GenericApp_Init( uint8 task_id )
 //  HalLedSet( HAL_LED_1, HAL_LED_MODE_ON );
 //  NLME_PermitJoiningRequest(0xFE);
 
-
+  init_timer3_as_second_counter();
   
 }
 
@@ -1034,7 +1057,7 @@ uint16 GenericApp_ProcessEvent( uint8 task_id, uint16 events )
                                 GENERICAPP_SEND_MSG_TIMEOUT );
 */
           }
-          
+          global_start = 1;
           break;
 
         default:
@@ -1147,6 +1170,10 @@ static void GenericApp_HandleKeys( uint8 shift, uint8 keys )
     if ( keys & HAL_KEY_SW_1 )
     {
        uprint("key1");
+       if(global_start == 1)
+       {
+          T3CTL |= 0x10;
+       }
     }
     if ( keys & HAL_KEY_SW_2 )
     {
@@ -1166,11 +1193,12 @@ static void GenericApp_HandleKeys( uint8 shift, uint8 keys )
       uprint("key5");
     }
 
+    /*
     if ( keys & HAL_KEY_SW_6 )
     {
       uprint("key6");
     }
-    
+    */
     if ( keys & HAL_KEY_SW_7 )
     {
       uprint("key7");
@@ -1579,4 +1607,14 @@ __interrupt static void UART0_ISR(void)
 
 
 
+#pragma vector=T3_VECTOR
+__interrupt static void T3_IRQ(void)
+{
+   t3_counter++;
+   if(t3_counter > 911) // this is about 1 seconds
+   {
+     uprint("t3 overflowed");
+     t3_counter=0;
+   }
+}
 

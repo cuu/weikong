@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         25/Sep/2012  12:12:19 #
+# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         14/Nov/2012  12:31:17 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -12,14 +12,14 @@
 #    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
 #                          \zstack\ZMain\TI2530DB\ZMain.c                     #
 #    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
-#                          ects\zstack\Samples\GenericApp_TI\CC2530DB\..\..\. #
-#                          .\Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ         #
+#                          ects\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ #
+#                          Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ           #
 #                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
 #                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
 #                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
 #                          -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
-#                          ects\zstack\Samples\GenericApp_TI\CC2530DB\..\..\. #
-#                          .\Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO       #
+#                          ects\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ #
+#                          Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO         #
 #                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
 #                          -DDEFAULT_CHANLIST=0x00000800                      #
 #                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
@@ -47,87 +47,87 @@
 #                          Main\TI2530DB\ZMain.c" -D ZTOOL_P1 -D MT_TASK -D   #
 #                          LCD_SUPPORTED=DEBUG -D HAL_UART=TRUE -D xNV_INIT   #
 #                          -D NV_RESTORE -D xPOWER_SAVING -D                  #
-#                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -lC           #
+#                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -D            #
+#                          HAL_LED=FALSE -lC "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\testApp_2.5\CC2530DB\CoordinatorEB\List\"   #
+#                          -lA "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\testApp_2.5\CC2530DB\Coordina #
+#                          torEB\List\" --diag_suppress Pe001,Pa010 -o        #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\GenericApp_TI\CC2530DB\Coordinato #
-#                          rEB\List\" -lA "C:\Texas                           #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\CoordinatorEB\List\" #
-#                           --diag_suppress Pe001,Pa010 -o "C:\Texas          #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\CoordinatorEB\Obj\"  #
-#                          -e --no_code_motion --debug --core=plain           #
+#                          s\zstack\Samples\testApp_2.5\CC2530DB\CoordinatorE #
+#                          B\Obj\" -e --no_code_motion --debug --core=plain   #
 #                          --dptr=16,1 --data_model=large                     #
 #                          --code_model=banked --calling_convention=xdata_ree #
 #                          ntrant --place_constants=data_rom                  #
 #                          --nr_virtual_regs 16 -I "C:\Texas                  #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\" -I "C:\Texas       #
+#                          amples\testApp_2.5\CC2530DB\" -I "C:\Texas         #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\Source\" -I       #
+#                          amples\testApp_2.5\CC2530DB\..\Source\" -I         #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\GenericApp_TI\CC2530DB\..\..\..\Z #
-#                          Main\TI2530DB\" -I "C:\Texas                       #
+#                          s\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ZMa #
+#                          in\TI2530DB\" -I "C:\Texas                         #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\hal\include\" -I "C:\Texas                   #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\hal\include\" -I "C:\Texas                     #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\hal\target\CC2530EB\" -I "C:\Texas           #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\hal\target\CC2530EB\" -I "C:\Texas             #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\mac\include\" -I "C:\Texas                   #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\include\" -I "C:\Texas                     #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\mac\high_level\" -I "C:\Texas                #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\high_level\" -I "C:\Texas                  #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\mac\low_level\srf04\" -I "C:\Texas           #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\low_level\srf04\" -I "C:\Texas             #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\mac\low_level\srf04\single_chip\" -I         #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\low_level\srf04\single_chip\" -I           #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\GenericApp_TI\CC2530DB\..\..\..\. #
-#                          .\..\Components\mt\" -I "C:\Texas                  #
+#                          s\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mt\" -I "C:\Texas                    #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\osal\include\" -I "C:\Texas                  #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\osal\include\" -I "C:\Texas                    #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\services\saddr\" -I "C:\Texas                #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\services\saddr\" -I "C:\Texas                  #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\services\sdata\" -I "C:\Texas                #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\services\sdata\" -I "C:\Texas                  #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\af\" -I "C:\Texas                      #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\af\" -I "C:\Texas                        #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\nwk\" -I "C:\Texas                     #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\nwk\" -I "C:\Texas                       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\sapi\" -I "C:\Texas                    #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\sapi\" -I "C:\Texas                      #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\sec\" -I "C:\Texas                     #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\sec\" -I "C:\Texas                       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\sys\" -I "C:\Texas                     #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\sys\" -I "C:\Texas                       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\zdo\" -I "C:\Texas                     #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\zdo\" -I "C:\Texas                       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\zmac\" -I "C:\Texas                          #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\zmac\f8w\" -Ohz --require_prototypes         #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\zmac\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.5.1a\Projects\zstack\Samples\testApp_2.5\CC2530D #
+#                          B\..\..\..\..\..\Components\zmac\f8w\" -Ohz        #
+#                          --require_prototypes                               #
 #    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
-#                          \zstack\Samples\GenericApp_TI\CC2530DB\Coordinator #
-#                          EB\List\ZMain.lst                                  #
+#                          \zstack\Samples\testApp_2.5\CC2530DB\CoordinatorEB #
+#                          \List\ZMain.lst                                    #
 #    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
-#                          \zstack\Samples\GenericApp_TI\CC2530DB\Coordinator #
-#                          EB\Obj\ZMain.r51                                   #
+#                          \zstack\Samples\testApp_2.5\CC2530DB\CoordinatorEB #
+#                          \Obj\ZMain.r51                                     #
 #                                                                             #
 #                                                                             #
 ###############################################################################
@@ -358,7 +358,7 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000061   12....       LCALL   ?Subroutine0 & 0xFFFF
     109            
     110            if( size  <= sizeof(zgDefaultChannelList) && size != 0  )
-   \                     ??CrossCallReturnLabel_5:
+   \                     ??CrossCallReturnLabel_3:
    \   000064   9405         SUBB    A,#0x5
    \   000066   E9           MOV     A,R1
    \   000067   9400         SUBB    A,#0x0
@@ -376,8 +376,8 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   00007A   7C04         MOV     R4,#0x4
    \   00007C   7D00         MOV     R5,#0x0
    \   00007E   7A84         MOV     R2,#-0x7c
-   \   000080   12....       LCALL   ?Subroutine3 & 0xFFFF
-   \                     ??CrossCallReturnLabel_12:
+   \   000080   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
    \   000083   12....       LCALL   ?DEALLOC_XSTACK8
     113                osal_nv_read(  ZCD_NV_CHANLIST, 0, sizeof(zgDefaultChannelList), &zgDefaultChannelList);
    \   000086                ; Setup parameters for call to function osal_nv_read
@@ -390,9 +390,9 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000096   7C00         MOV     R4,#0x0
    \   000098   7D00         MOV     R5,#0x0
    \   00009A   7A84         MOV     R2,#-0x7c
-   \   00009C   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \   00009C   12....       LCALL   ?Subroutine3 & 0xFFFF
     114            }else
-   \                     ??CrossCallReturnLabel_8:
+   \                     ??CrossCallReturnLabel_6:
    \   00009F   12....       LCALL   ?DEALLOC_XSTACK8
    \   0000A2   800C         SJMP    ??main_5
     115            {
@@ -412,7 +412,7 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   0000B2   12....       LCALL   ?Subroutine0 & 0xFFFF
     121            /// 改变 panid ，在启动时
     122            if( size  <= sizeof(zgConfigPANID) && size != 0  )
-   \                     ??CrossCallReturnLabel_6:
+   \                     ??CrossCallReturnLabel_4:
    \   0000B5   9403         SUBB    A,#0x3
    \   0000B7   E9           MOV     A,R1
    \   0000B8   9400         SUBB    A,#0x0
@@ -430,8 +430,8 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   0000CB   7C02         MOV     R4,#0x2
    \   0000CD   7D00         MOV     R5,#0x0
    \   0000CF   7A83         MOV     R2,#-0x7d
-   \   0000D1   12....       LCALL   ?Subroutine3 & 0xFFFF
-   \                     ??CrossCallReturnLabel_13:
+   \   0000D1   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
    \   0000D4   12....       LCALL   ?DEALLOC_XSTACK8
     125                osal_nv_read(  ZCD_NV_PANID, 0, sizeof(zgConfigPANID), &zgConfigPANID);
    \   0000D7                ; Setup parameters for call to function osal_nv_read
@@ -444,9 +444,9 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   0000E7   7C00         MOV     R4,#0x0
    \   0000E9   7D00         MOV     R5,#0x0
    \   0000EB   7A83         MOV     R2,#-0x7d
-   \   0000ED   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \   0000ED   12....       LCALL   ?Subroutine3 & 0xFFFF
     126            }else
-   \                     ??CrossCallReturnLabel_9:
+   \                     ??CrossCallReturnLabel_7:
    \   0000F0   12....       LCALL   ?DEALLOC_XSTACK8
    \   0000F3   8008         SJMP    ??main_7
     127            {
@@ -464,10 +464,10 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   0000FD                ; Setup parameters for call to function osal_nv_item_len
    \   0000FD   7A01         MOV     R2,#0x1
    \   0000FF   7B02         MOV     R3,#0x2
-   \   000101   12....       LCALL   ??Subroutine5_0 & 0xFFFF
+   \   000101   12....       LCALL   ??Subroutine4_0 & 0xFFFF
     132            
     133            if( size <= sizeof(start_flag) && size != 0 )
-   \                     ??CrossCallReturnLabel_7:
+   \                     ??CrossCallReturnLabel_5:
    \   000104   9402         SUBB    A,#0x2
    \   000106   E9           MOV     A,R1
    \   000107   9400         SUBB    A,#0x0
@@ -486,8 +486,8 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   00011C   7D00         MOV     R5,#0x0
    \   00011E   7A01         MOV     R2,#0x1
    \   000120   7B02         MOV     R3,#0x2
-   \   000122   12....       LCALL   ??Subroutine7_0 & 0xFFFF
-   \                     ??CrossCallReturnLabel_15:
+   \   000122   12....       LCALL   ??Subroutine6_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
    \   000125   12....       LCALL   ?DEALLOC_XSTACK8
     136              osal_nv_read(0x0201,0,  sizeof(start_flag), &start_flag);
    \   000128                ; Setup parameters for call to function osal_nv_read
@@ -501,9 +501,9 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   00013A   7D00         MOV     R5,#0x0
    \   00013C   7A01         MOV     R2,#0x1
    \   00013E   7B02         MOV     R3,#0x2
-   \   000140   12....       LCALL   ??Subroutine6_0 & 0xFFFF
+   \   000140   12....       LCALL   ??Subroutine5_0 & 0xFFFF
     137            }else
-   \                     ??CrossCallReturnLabel_11:
+   \                     ??CrossCallReturnLabel_9:
    \   000143   12....       LCALL   ?DEALLOC_XSTACK8
    \   000146   8005         SJMP    ??main_9
     138            {
@@ -558,18 +558,16 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000160   12....       LCALL   ??InitBoard?relay
     169          
     170            // Display information about this device
-    171            zmain_dev_info();
-   \   000163                ; Setup parameters for call to function zmain_dev_info
-   \   000163   12....       LCALL   ??zmain_dev_info?relay
+    171            //zmain_dev_info();
     172          
     173            /* Display the device info on the LCD */
     174          #ifdef LCD_SUPPORTED
     175            zmain_lcd_init();
-   \   000166                ; Setup parameters for call to function HalLcdWriteString
-   \   000166   7901         MOV     R1,#0x1
-   \   000168   7A..         MOV     R2,#`?<Constant "TexasInstruments">` & 0xff
-   \   00016A   7B..         MOV     R3,#(`?<Constant "TexasInstruments">` >> 8) & 0xff
-   \   00016C   12....       LCALL   ??HalLcdWriteString?relay
+   \   000163                ; Setup parameters for call to function HalLcdWriteString
+   \   000163   7901         MOV     R1,#0x1
+   \   000165   7A..         MOV     R2,#`?<Constant "TexasInstruments">` & 0xff
+   \   000167   7B..         MOV     R3,#(`?<Constant "TexasInstruments">` >> 8) & 0xff
+   \   000169   12....       LCALL   ??HalLcdWriteString?relay
     176          #endif
     177          
     178          #ifdef WDT_IN_PM1
@@ -578,30 +576,30 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
     181          #endif
     182          
     183            osal_start_system(); // No Return from here
-   \   00016F                ; Setup parameters for call to function osal_start_system
-   \   00016F   12....       LCALL   ??osal_start_system?relay
+   \   00016C                ; Setup parameters for call to function osal_start_system
+   \   00016C   12....       LCALL   ??osal_start_system?relay
     184          
     185            return 0;  // Shouldn't get here.
-   \   000172   7A00         MOV     R2,#0x0
-   \   000174   7B00         MOV     R3,#0x0
-   \   000176   02....       LJMP    ?BRET
-   \   000179                REQUIRE SLEEPCMD
-   \   000179                REQUIRE SLEEPSTA
-   \   000179                REQUIRE CLKCONCMD
-   \   000179                REQUIRE CLKCONSTA
-   \   000179                REQUIRE _A_P1
-   \   000179                REQUIRE P1DIR
-   \   000179                REQUIRE P0INP
+   \   00016F   7A00         MOV     R2,#0x0
+   \   000171   7B00         MOV     R3,#0x0
+   \   000173   02....       LJMP    ?BRET
+   \   000176                REQUIRE SLEEPCMD
+   \   000176                REQUIRE SLEEPSTA
+   \   000176                REQUIRE CLKCONCMD
+   \   000176                REQUIRE CLKCONSTA
+   \   000176                REQUIRE _A_P1
+   \   000176                REQUIRE P1DIR
+   \   000176                REQUIRE P0INP
     186          } // main()
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine0:
    \   000000   7B00         MOV     R3,#0x0
-   \   000002                REQUIRE ??Subroutine5_0
-   \   000002                ; // Fall through to label ??Subroutine5_0
+   \   000002                REQUIRE ??Subroutine4_0
+   \   000002                ; // Fall through to label ??Subroutine4_0
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-   \                     ??Subroutine5_0:
+   \                     ??Subroutine4_0:
    \   000000   12....       LCALL   ??osal_nv_item_len?relay
    \   000003   8A..         MOV     ?V0 + 0,R2
    \   000005   8B..         MOV     ?V0 + 1,R3
@@ -612,25 +610,25 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   00000D   22           RET
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-   \                     ?Subroutine4:
+   \                     ?Subroutine3:
+   \   000000   7B00         MOV     R3,#0x0
+   \   000002                REQUIRE ??Subroutine5_0
+   \   000002                ; // Fall through to label ??Subroutine5_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine5_0:
+   \   000000   12....       LCALL   ??osal_nv_read?relay
+   \   000003   7404         MOV     A,#0x4
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
    \   000000   7B00         MOV     R3,#0x0
    \   000002                REQUIRE ??Subroutine6_0
    \   000002                ; // Fall through to label ??Subroutine6_0
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ??Subroutine6_0:
-   \   000000   12....       LCALL   ??osal_nv_read?relay
-   \   000003   7404         MOV     A,#0x4
-   \   000005   22           RET
-
-   \                                 In  segment BANKED_CODE, align 1, keep-with-next
-   \                     ?Subroutine3:
-   \   000000   7B00         MOV     R3,#0x0
-   \   000002                REQUIRE ??Subroutine7_0
-   \   000002                ; // Fall through to label ??Subroutine7_0
-
-   \                                 In  segment BANKED_CODE, align 1, keep-with-next
-   \                     ??Subroutine7_0:
    \   000000   12....       LCALL   ??osal_nv_item_init?relay
    \   000003   7402         MOV     A,#0x2
    \   000005   22           RET
@@ -700,8 +698,8 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000028   7C08         MOV     R4,#0x8
    \   00002A   7D00         MOV     R5,#0x0
    \   00002C   7A01         MOV     R2,#0x1
-   \   00002E   12....       LCALL   ?Subroutine3 & 0xFFFF
-   \                     ??CrossCallReturnLabel_14:
+   \   00002E   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
    \   000031   12....       LCALL   ?DEALLOC_XSTACK8
    \   000034   E9           MOV     A,R1
    \   000035   7053         JNZ     ??zmain_ext_addr_0
@@ -717,8 +715,8 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   00004D   7C00         MOV     R4,#0x0
    \   00004F   7D00         MOV     R5,#0x0
    \   000051   7A01         MOV     R2,#0x1
-   \   000053   12....       LCALL   ?Subroutine4 & 0xFFFF
-   \                     ??CrossCallReturnLabel_10:
+   \   000053   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
    \   000056   12....       LCALL   ?DEALLOC_XSTACK8
    \   000059   E9           MOV     A,R1
    \   00005A   702E         JNZ     ??zmain_ext_addr_0
@@ -929,6 +927,47 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   00000A   3400         ADDC    A,#0x0
    \   00000C   F583         MOV     DPH,A
    \   00000E   22           RET
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zgDefaultChannelList>`:
+   \   000000   00080000     DD 2048
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zgConfigPANID>`:
+   \   000000   FFFF         DW 65535
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??main?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    main
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zmain_ext_addr?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zmain_ext_addr
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {255, 255, 255, 255, 255, 255, 255,`:
+   \   000000   FF           DB 255
+   \   000001   FF           DB 255
+   \   000002   FF           DB 255
+   \   000003   FF           DB 255
+   \   000004   FF           DB 255
+   \   000005   FF           DB 255
+   \   000006   FF           DB 255
+   \   000007   FF           DB 255
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "TexasInstruments">`:
+   \   000000   54657861     DB "TexasInstruments"
+   \            73496E73
+   \            7472756D
+   \            656E7473
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_800:
+   \   000000   00080000     DD 2048
     280          
     281          #if defined ZCL_KEY_ESTABLISH
     282          /**************************************************************************************************
@@ -1003,17 +1042,10 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
     351           * @return      None.
     352           **************************************************************************************************
     353           */
-
-   \                                 In  segment BANKED_CODE, align 1, keep-with-next
     354          static void zmain_dev_info(void)
-   \                     zmain_dev_info:
+                             ^
+Warning[Pe177]: function "zmain_dev_info" was declared but never referenced
     355          {
-   \   000000   74F6         MOV     A,#-0xa
-   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
-   \   000005                ; Saved register size: 10
-   \   000005                ; Auto size: 17
-   \   000005   74EF         MOV     A,#-0x11
-   \   000007   12....       LCALL   ?ALLOC_XSTACK8
     356          #ifdef LCD_SUPPORTED
     357            uint8 i;
     358            uint8 *xad;
@@ -1021,168 +1053,20 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
     360          
     361            // Display the extended address.
     362            xad = aExtendedAddress + Z_EXTADDR_LEN - 1;
-   \   00000A   78..         MOV     R0,#(aExtendedAddress + 7) & 0xff
-   \   00000C   79..         MOV     R1,#((aExtendedAddress + 7) >> 8) & 0xff
     363          
     364            for (i = 0; i < Z_EXTADDR_LEN*2; xad--)
-   \   00000E   7C00         MOV     R4,#0x0
     365            {
     366              uint8 ch;
     367              ch = (*xad >> 4) & 0x0F;
-   \                     ??zmain_dev_info_0:
-   \   000010   8882         MOV     DPL,R0
-   \   000012   8983         MOV     DPH,R1
-   \   000014   E0           MOVX    A,@DPTR
-   \   000015   C4           SWAP    A
-   \   000016   540F         ANL     A,#0xf
-   \   000018   FD           MOV     R5,A
     368              lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
-   \   000019   EC           MOV     A,R4
-   \   00001A   FE           MOV     R6,A
-   \   00001B   0C           INC     R4
-   \   00001C   ED           MOV     A,R5
-   \   00001D   C3           CLR     C
-   \   00001E   940A         SUBB    A,#0xa
-   \   000020   5004         JNC     ??zmain_dev_info_1
-   \   000022   7A30         MOV     R2,#0x30
-   \   000024   8002         SJMP    ??zmain_dev_info_2
-   \                     ??zmain_dev_info_1:
-   \   000026   7A37         MOV     R2,#0x37
-   \                     ??zmain_dev_info_2:
-   \   000028   EA           MOV     A,R2
-   \   000029   2D           ADD     A,R5
-   \   00002A   C0E0         PUSH    A
-   \   00002C   8E..         MOV     ?V0 + 0,R6
-   \   00002E   12....       LCALL   ?Subroutine2 & 0xFFFF
-   \                     ??CrossCallReturnLabel_3:
-   \   000031   D0E0         POP     A
-   \   000033   F0           MOVX    @DPTR,A
     369              ch = *xad & 0x0F;
-   \   000034   8882         MOV     DPL,R0
-   \   000036   8983         MOV     DPH,R1
-   \   000038   E0           MOVX    A,@DPTR
-   \   000039   540F         ANL     A,#0xf
-   \   00003B   FD           MOV     R5,A
     370              lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
-   \   00003C   EC           MOV     A,R4
-   \   00003D   FF           MOV     R7,A
-   \   00003E   0C           INC     R4
-   \   00003F   ED           MOV     A,R5
-   \   000040   C3           CLR     C
-   \   000041   940A         SUBB    A,#0xa
-   \   000043   5004         JNC     ??zmain_dev_info_3
-   \   000045   7A30         MOV     R2,#0x30
-   \   000047   8002         SJMP    ??zmain_dev_info_4
-   \                     ??zmain_dev_info_3:
-   \   000049   7A37         MOV     R2,#0x37
-   \                     ??zmain_dev_info_4:
-   \   00004B   EA           MOV     A,R2
-   \   00004C   2D           ADD     A,R5
-   \   00004D   C0E0         PUSH    A
-   \   00004F   8F..         MOV     ?V0 + 0,R7
-   \   000051   12....       LCALL   ?Subroutine2 & 0xFFFF
     371            }
-   \                     ??CrossCallReturnLabel_4:
-   \   000054   D0E0         POP     A
-   \   000056   F0           MOVX    @DPTR,A
-   \   000057   E8           MOV     A,R0
-   \   000058   24FF         ADD     A,#-0x1
-   \   00005A   18           DEC     R0
-   \   00005B   E9           MOV     A,R1
-   \   00005C   34FF         ADDC    A,#-0x1
-   \   00005E   F9           MOV     R1,A
-   \   00005F   EC           MOV     A,R4
-   \   000060   C3           CLR     C
-   \   000061   9410         SUBB    A,#0x10
-   \   000063   40AB         JC      ??zmain_dev_info_0
     372            lcd_buf[Z_EXTADDR_LEN*2] = '\0';
-   \   000065   7410         MOV     A,#0x10
-   \   000067   12....       LCALL   ?XSTACK_DISP0_8
-   \   00006A   E4           CLR     A
-   \   00006B   F0           MOVX    @DPTR,A
     373            HalLcdWriteString( "IEEE: ", HAL_LCD_LINE_1 );
-   \   00006C                ; Setup parameters for call to function HalLcdWriteString
-   \   00006C   7901         MOV     R1,#0x1
-   \   00006E   7A..         MOV     R2,#`?<Constant "IEEE: ">` & 0xff
-   \   000070   7B..         MOV     R3,#(`?<Constant "IEEE: ">` >> 8) & 0xff
-   \   000072   12....       LCALL   ??HalLcdWriteString?relay
     374            HalLcdWriteString( (char*)lcd_buf, HAL_LCD_LINE_2 );
-   \   000075                ; Setup parameters for call to function HalLcdWriteString
-   \   000075   7902         MOV     R1,#0x2
-   \   000077   85..82       MOV     DPL,?XSP + 0
-   \   00007A   85..83       MOV     DPH,?XSP + 1
-   \   00007D   AA82         MOV     R2,DPL
-   \   00007F   AB83         MOV     R3,DPH
-   \   000081   12....       LCALL   ??HalLcdWriteString?relay
     375          #endif
     376          }
-   \   000084   7411         MOV     A,#0x11
-   \   000086   12....       LCALL   ?DEALLOC_XSTACK8
-   \   000089   7F02         MOV     R7,#0x2
-   \   00008B   02....       LJMP    ?BANKED_LEAVE_XDATA
-
-   \                                 In  segment BANKED_CODE, align 1, keep-with-next
-   \                     ?Subroutine2:
-   \   000000   85..82       MOV     DPL,?XSP + 0
-   \   000003   85..83       MOV     DPH,?XSP + 1
-   \   000006   E582         MOV     A,DPL
-   \   000008   25..         ADD     A,?V0 + 0
-   \   00000A   F582         MOV     DPL,A
-   \   00000C   E583         MOV     A,DPH
-   \   00000E   3400         ADDC    A,#0x0
-   \   000010   F583         MOV     DPH,A
-   \   000012   22           RET
-
-   \                                 In  segment XDATA_ID, align 1, keep-with-next
-   \                     `?<Initializer for zgDefaultChannelList>`:
-   \   000000   00080000     DD 2048
-
-   \                                 In  segment XDATA_ID, align 1, keep-with-next
-   \                     `?<Initializer for zgConfigPANID>`:
-   \   000000   FFFF         DW 65535
-
-   \                                 In  segment BANK_RELAYS, align 1
-   \                     ??main?relay:
-   \   000000   12....       LCALL   ?BDISPATCH
-   \   000003   ......       DC24    main
-
-   \                                 In  segment BANK_RELAYS, align 1
-   \                     ??zmain_ext_addr?relay:
-   \   000000   12....       LCALL   ?BDISPATCH
-   \   000003   ......       DC24    zmain_ext_addr
-
-   \                                 In  segment BANK_RELAYS, align 1
-   \                     ??zmain_dev_info?relay:
-   \   000000   12....       LCALL   ?BDISPATCH
-   \   000003   ......       DC24    zmain_dev_info
-
-   \                                 In  segment XDATA_ROM_C, align 1
-   \                     `?<Constant {255, 255, 255, 255, 255, 255, 255,`:
-   \   000000   FF           DB 255
-   \   000001   FF           DB 255
-   \   000002   FF           DB 255
-   \   000003   FF           DB 255
-   \   000004   FF           DB 255
-   \   000005   FF           DB 255
-   \   000006   FF           DB 255
-   \   000007   FF           DB 255
-
-   \                                 In  segment XDATA_ROM_C, align 1
-   \                     `?<Constant "IEEE: ">`:
-   \   000000   49454545     DB "IEEE: "
-   \            3A2000  
-
-   \                                 In  segment XDATA_ROM_C, align 1
-   \                     `?<Constant "TexasInstruments">`:
-   \   000000   54657861     DB "TexasInstruments"
-   \            73496E73
-   \            7472756D
-   \            656E7473
-   \            00      
-
-   \                                 In  segment XDATA_ROM_C, align 1
-   \                     __Constant_800:
-   \   000000   00080000     DD 2048
     377          
     378          #ifdef LCD_SUPPORTED
     379          /*********************************************************************
@@ -1242,12 +1126,8 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
        -> osal_init_system      0      0      0
        -> osal_int_enable       0      0      0
        -> InitBoard             0      0      0
-       -> zmain_dev_info        0      0      0
        -> HalLcdWriteString     0      0      0
        -> osal_start_system     0      0      0
-     zmain_dev_info             1      0     27
-       -> HalLcdWriteString     0      0     54
-       -> HalLcdWriteString     0      0     54
      zmain_ext_addr             2      0     23
        -> osal_nv_item_init     0      0     42
        -> osal_nv_read          0      0     46
@@ -1275,40 +1155,36 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ZMain\TI2530DB\ZMain.c
      zgDefaultChannelList                              4
      zgConfigPANID                                     2
      start_flag                                        1
-     main                                            377
+     main                                            374
      ?Subroutine0                                      2
-     ??Subroutine5_0                                  14
-     ?Subroutine4                                      2
-     ??Subroutine6_0                                   6
+     ??Subroutine4_0                                  14
      ?Subroutine3                                      2
-     ??Subroutine7_0                                   6
+     ??Subroutine5_0                                   6
+     ?Subroutine2                                      2
+     ??Subroutine6_0                                   6
      zmain_ext_addr                                  373
      ?Subroutine1                                     15
-     zmain_dev_info                                  142
-     ?Subroutine2                                     19
      ?<Initializer for zgDefaultChannelList>           4
      ?<Initializer for zgConfigPANID>                  2
      ??main?relay                                      6
      ??zmain_ext_addr?relay                            6
-     ??zmain_dev_info?relay                            6
      ?<Constant {255, 255, 255, 255, 255, 255, 255,    8
-     ?<Constant "IEEE: ">                              7
      ?<Constant "TexasInstruments">                   17
      __Constant_800                                    4
 
  
- 958 bytes in segment BANKED_CODE
-  18 bytes in segment BANK_RELAYS
+ 794 bytes in segment BANKED_CODE
+  12 bytes in segment BANK_RELAYS
    7 bytes in segment SFR_AN
    6 bytes in segment XDATA_I
    6 bytes in segment XDATA_ID
-  36 bytes in segment XDATA_ROM_C
+  29 bytes in segment XDATA_ROM_C
    1 byte  in segment XDATA_Z
  
- 982 bytes of CODE  memory
-  32 bytes of CONST memory (+ 4 bytes shared)
+ 812 bytes of CODE  memory
+  25 bytes of CONST memory (+ 4 bytes shared)
    0 bytes of DATA  memory (+ 7 bytes shared)
    7 bytes of XDATA memory
 
 Errors: none
-Warnings: none
+Warnings: 1

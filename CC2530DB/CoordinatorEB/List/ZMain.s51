@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.40338/W32 for 8051        25/Sep/2012  12:12:19 /
+// IAR C/C++ Compiler V8.10.3.40338/W32 for 8051        14/Nov/2012  12:31:17 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -12,14 +12,14 @@
 //    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project /
 //                          s\zstack\ZMain\TI2530DB\ZMain.c                   /
 //    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\GenericApp_TI\CC2530DB\..\.. /
-//                          \..\Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ      /
+//                          jects\zstack\Samples\testApp_2.5\CC2530DB\..\..\. /
+//                          .\Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ        /
 //                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TR /
 //                          UE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8     /
 //                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
 //                          -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\GenericApp_TI\CC2530DB\..\.. /
-//                          \..\Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO    /
+//                          jects\zstack\Samples\testApp_2.5\CC2530DB\..\..\. /
+//                          .\Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO      /
 //                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR      /
 //                          -DDEFAULT_CHANLIST=0x00000800                     /
 //                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
@@ -47,84 +47,84 @@
 //                          ZMain\TI2530DB\ZMain.c" -D ZTOOL_P1 -D MT_TASK    /
 //                          -D LCD_SUPPORTED=DEBUG -D HAL_UART=TRUE -D        /
 //                          xNV_INIT -D NV_RESTORE -D xPOWER_SAVING -D        /
-//                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -lC          /
+//                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -D           /
+//                          HAL_LED=FALSE -lC "C:\Texas                       /
+//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
+//                          Samples\testApp_2.5\CC2530DB\CoordinatorEB\List\" /
+//                           -lA "C:\Texas Instruments\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Samples\testApp_2.5\CC2530DB\Coord /
+//                          inatorEB\List\" --diag_suppress Pe001,Pa010 -o    /
 //                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\GenericApp_TI\CC2530DB\Coordina /
-//                          torEB\List\" -lA "C:\Texas                        /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\CoordinatorEB\List /
-//                          \" --diag_suppress Pe001,Pa010 -o "C:\Texas       /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\CoordinatorEB\Obj\ /
-//                          " -e --no_code_motion --debug --core=plain        /
-//                          --dptr=16,1 --data_model=large                    /
+//                          ts\zstack\Samples\testApp_2.5\CC2530DB\Coordinato /
+//                          rEB\Obj\" -e --no_code_motion --debug             /
+//                          --core=plain --dptr=16,1 --data_model=large       /
 //                          --code_model=banked --calling_convention=xdata_re /
 //                          entrant --place_constants=data_rom                /
 //                          --nr_virtual_regs 16 -I "C:\Texas                 /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\" -I "C:\Texas     /
+//                          Samples\testApp_2.5\CC2530DB\" -I "C:\Texas       /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\Source\" -I     /
+//                          Samples\testApp_2.5\CC2530DB\..\Source\" -I       /
 //                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\GenericApp_TI\CC2530DB\..\..\.. /
-//                          \ZMain\TI2530DB\" -I "C:\Texas                    /
+//                          ts\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\Z /
+//                          Main\TI2530DB\" -I "C:\Texas                      /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\hal\include\" -I "C:\Texas                /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\hal\include\" -I "C:\Texas                  /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\hal\target\CC2530EB\" -I "C:\Texas        /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\hal\target\CC2530EB\" -I "C:\Texas          /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\include\" -I "C:\Texas                /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\include\" -I "C:\Texas                  /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\high_level\" -I "C:\Texas             /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\high_level\" -I "C:\Texas               /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\low_level\srf04\" -I "C:\Texas        /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\low_level\srf04\" -I "C:\Texas          /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\low_level\srf04\single_chip\" -I      /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\low_level\srf04\single_chip\" -I        /
 //                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\GenericApp_TI\CC2530DB\..\..\.. /
-//                          \..\..\Components\mt\" -I "C:\Texas               /
+//                          ts\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\. /
+//                          .\..\Components\mt\" -I "C:\Texas                 /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\osal\include\" -I "C:\Texas               /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\osal\include\" -I "C:\Texas                 /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\services\saddr\" -I "C:\Texas             /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\services\saddr\" -I "C:\Texas               /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\services\sdata\" -I "C:\Texas             /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\services\sdata\" -I "C:\Texas               /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\af\" -I "C:\Texas                   /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\af\" -I "C:\Texas                     /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\nwk\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\nwk\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\sapi\" -I "C:\Texas                 /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\sapi\" -I "C:\Texas                   /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\sec\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\sec\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\sys\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\sys\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\zdo\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\zdo\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\zmac\" -I "C:\Texas                       /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\zmac\" -I "C:\Texas                         /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\zmac\f8w\" -Ohz --require_prototypes      /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\zmac\f8w\" -Ohz --require_prototypes        /
 //    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project /
-//                          s\zstack\Samples\GenericApp_TI\CC2530DB\Coordinat /
-//                          orEB\List\ZMain.s51                               /
+//                          s\zstack\Samples\testApp_2.5\CC2530DB\Coordinator /
+//                          EB\List\ZMain.s51                                 /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -160,14 +160,12 @@
         EXTERN ?V0
         EXTERN ?XLOAD_R2345
         EXTERN ?XSP
-        EXTERN ?XSTACK_DISP0_8
         EXTERN ?XSTORE_R2345
         EXTERN __INIT_XDATA_I
         EXTERN __INIT_XDATA_Z
 
         PUBLIC ??main?relay
         FUNCTION ??main?relay,0203H
-        FUNCTION ??zmain_dev_info?relay,0203H
         FUNCTION ??zmain_ext_addr?relay,0203H
         PUBWEAK CLKCONCMD
         PUBWEAK CLKCONSTA
@@ -184,12 +182,6 @@
         PUBLIC start_flag
         PUBLIC zgConfigPANID
         PUBLIC zgDefaultChannelList
-        FUNCTION zmain_dev_info,021203H
-        ARGFRAME XSTACK, 0, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        LOCFRAME ISTACK, 1, STACK
-        LOCFRAME XSTACK, 27, STACK
         FUNCTION zmain_ext_addr,021203H
         ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
@@ -483,7 +475,7 @@ main                SYMBOL "main"
         FUNCTION HalLcdWriteString,0202H
         ARGFRAME ISTACK, 0, STACK
         ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 27, STACK
+        ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         EXTERN osal_start_system
@@ -952,17 +944,6 @@ main:
         ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL main, zmain_dev_info
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 0, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 0, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
         FUNCALL main, HalLcdWriteString
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -1069,7 +1050,7 @@ main:
         LCALL   ?Subroutine0 & 0xFFFF
 //  109   
 //  110   if( size  <= sizeof(zgDefaultChannelList) && size != 0  )
-??CrossCallReturnLabel_5:
+??CrossCallReturnLabel_3:
         SUBB    A,#0x5
         MOV     A,R1
         SUBB    A,#0x0
@@ -1088,8 +1069,8 @@ main:
         MOV     R4,#0x4
         MOV     R5,#0x0
         MOV     R2,#-0x7c
-        LCALL   ?Subroutine3 & 0xFFFF
-??CrossCallReturnLabel_12:
+        LCALL   ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_10:
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 XSP16+0
 //  113       osal_nv_read(  ZCD_NV_CHANLIST, 0, sizeof(zgDefaultChannelList), &zgDefaultChannelList);
@@ -1105,9 +1086,9 @@ main:
         MOV     R4,#0x0
         MOV     R5,#0x0
         MOV     R2,#-0x7c
-        LCALL   ?Subroutine4 & 0xFFFF
+        LCALL   ?Subroutine3 & 0xFFFF
 //  114   }else
-??CrossCallReturnLabel_8:
+??CrossCallReturnLabel_6:
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 XSP16+0
         SJMP    ??main_5
@@ -1128,7 +1109,7 @@ main:
         LCALL   ?Subroutine0 & 0xFFFF
 //  121   /// 改变 panid ，在启动时
 //  122   if( size  <= sizeof(zgConfigPANID) && size != 0  )
-??CrossCallReturnLabel_6:
+??CrossCallReturnLabel_4:
         SUBB    A,#0x3
         MOV     A,R1
         SUBB    A,#0x0
@@ -1147,8 +1128,8 @@ main:
         MOV     R4,#0x2
         MOV     R5,#0x0
         MOV     R2,#-0x7d
-        LCALL   ?Subroutine3 & 0xFFFF
-??CrossCallReturnLabel_13:
+        LCALL   ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_11:
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 XSP16+0
 //  125       osal_nv_read(  ZCD_NV_PANID, 0, sizeof(zgConfigPANID), &zgConfigPANID);
@@ -1164,9 +1145,9 @@ main:
         MOV     R4,#0x0
         MOV     R5,#0x0
         MOV     R2,#-0x7d
-        LCALL   ?Subroutine4 & 0xFFFF
+        LCALL   ?Subroutine3 & 0xFFFF
 //  126   }else
-??CrossCallReturnLabel_9:
+??CrossCallReturnLabel_7:
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 XSP16+0
         SJMP    ??main_7
@@ -1185,10 +1166,10 @@ main:
         ; Setup parameters for call to function osal_nv_item_len
         MOV     R2,#0x1
         MOV     R3,#0x2
-        LCALL   ??Subroutine5_0 & 0xFFFF
+        LCALL   ??Subroutine4_0 & 0xFFFF
 //  132   
 //  133   if( size <= sizeof(start_flag) && size != 0 )
-??CrossCallReturnLabel_7:
+??CrossCallReturnLabel_5:
         SUBB    A,#0x2
         MOV     A,R1
         SUBB    A,#0x0
@@ -1208,8 +1189,8 @@ main:
         MOV     R5,#0x0
         MOV     R2,#0x1
         MOV     R3,#0x2
-        LCALL   ??Subroutine7_0 & 0xFFFF
-??CrossCallReturnLabel_15:
+        LCALL   ??Subroutine6_0 & 0xFFFF
+??CrossCallReturnLabel_13:
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 XSP16+0
 //  136     osal_nv_read(0x0201,0,  sizeof(start_flag), &start_flag);
@@ -1226,9 +1207,9 @@ main:
         MOV     R5,#0x0
         MOV     R2,#0x1
         MOV     R3,#0x2
-        LCALL   ??Subroutine6_0 & 0xFFFF
+        LCALL   ??Subroutine5_0 & 0xFFFF
 //  137   }else
-??CrossCallReturnLabel_11:
+??CrossCallReturnLabel_9:
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 XSP16+0
         SJMP    ??main_9
@@ -1284,9 +1265,7 @@ main:
         LCALL   ??InitBoard?relay
 //  169 
 //  170   // Display information about this device
-//  171   zmain_dev_info();
-        ; Setup parameters for call to function zmain_dev_info
-        LCALL   ??zmain_dev_info?relay
+//  171   //zmain_dev_info();
 //  172 
 //  173   /* Display the device info on the LCD */
 //  174 #ifdef LCD_SUPPORTED
@@ -1325,10 +1304,10 @@ main:
 ?Subroutine0:
         CFI Block cfiCond1 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_5
+        CFI Conditional ??CrossCallReturnLabel_3
         CFI Block cfiCond2 Using cfiCommon0
         CFI (cfiCond2) NoFunction
-        CFI (cfiCond2) Conditional ??CrossCallReturnLabel_6
+        CFI (cfiCond2) Conditional ??CrossCallReturnLabel_4
         CFI Block cfiPicker3 Using cfiCommon1
         CFI (cfiPicker3) NoFunction
         CFI (cfiPicker3) Picker
@@ -1336,20 +1315,20 @@ main:
         CFI EndBlock cfiCond1
         CFI EndBlock cfiCond2
         CFI EndBlock cfiPicker3
-        REQUIRE ??Subroutine5_0
-        ; // Fall through to label ??Subroutine5_0
+        REQUIRE ??Subroutine4_0
+        ; // Fall through to label ??Subroutine4_0
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-??Subroutine5_0:
+??Subroutine4_0:
         CFI Block cfiCond4 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_7
+        CFI Conditional ??CrossCallReturnLabel_5
         CFI Block cfiCond5 Using cfiCommon0
         CFI (cfiCond5) NoFunction
-        CFI (cfiCond5) Conditional ??CrossCallReturnLabel_5
+        CFI (cfiCond5) Conditional ??CrossCallReturnLabel_3
         CFI Block cfiCond6 Using cfiCommon0
         CFI (cfiCond6) NoFunction
-        CFI (cfiCond6) Conditional ??CrossCallReturnLabel_6
+        CFI (cfiCond6) Conditional ??CrossCallReturnLabel_4
         CFI Block cfiPicker7 Using cfiCommon1
         CFI (cfiPicker7) NoFunction
         CFI (cfiPicker7) Picker
@@ -1559,8 +1538,8 @@ zmain_ext_addr:
         MOV     R4,#0x8
         MOV     R5,#0x0
         MOV     R2,#0x1
-        LCALL   ?Subroutine3 & 0xFFFF
-??CrossCallReturnLabel_14:
+        LCALL   ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_12:
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 19)
         MOV     A,R1
@@ -1579,8 +1558,8 @@ zmain_ext_addr:
         MOV     R4,#0x0
         MOV     R5,#0x0
         MOV     R2,#0x1
-        LCALL   ?Subroutine4 & 0xFFFF
-??CrossCallReturnLabel_10:
+        LCALL   ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_8:
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 19)
         MOV     A,R1
@@ -1798,18 +1777,18 @@ zmain_ext_addr:
         CFI EndBlock cfiBlock8
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine4:
+?Subroutine3:
         CFI Block cfiCond9 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_8
+        CFI Conditional ??CrossCallReturnLabel_6
         CFI CFA_XSP16 add(XSP16, 4)
         CFI Block cfiCond10 Using cfiCommon0
         CFI (cfiCond10) NoFunction
-        CFI (cfiCond10) Conditional ??CrossCallReturnLabel_9
+        CFI (cfiCond10) Conditional ??CrossCallReturnLabel_7
         CFI (cfiCond10) CFA_XSP16 add(XSP16, 4)
         CFI Block cfiCond11 Using cfiCommon0
         CFI (cfiCond11) NoFunction
-        CFI (cfiCond11) Conditional ??CrossCallReturnLabel_10
+        CFI (cfiCond11) Conditional ??CrossCallReturnLabel_8
         CFI (cfiCond11) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI (cfiCond11) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI (cfiCond11) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -1831,26 +1810,26 @@ zmain_ext_addr:
         CFI EndBlock cfiCond10
         CFI EndBlock cfiCond11
         CFI EndBlock cfiPicker12
-        REQUIRE ??Subroutine6_0
-        ; // Fall through to label ??Subroutine6_0
+        REQUIRE ??Subroutine5_0
+        ; // Fall through to label ??Subroutine5_0
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-??Subroutine6_0:
+??Subroutine5_0:
         CFI Block cfiCond13 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_11
+        CFI Conditional ??CrossCallReturnLabel_9
         CFI CFA_XSP16 add(XSP16, 4)
         CFI Block cfiCond14 Using cfiCommon0
         CFI (cfiCond14) NoFunction
-        CFI (cfiCond14) Conditional ??CrossCallReturnLabel_8
+        CFI (cfiCond14) Conditional ??CrossCallReturnLabel_6
         CFI (cfiCond14) CFA_XSP16 add(XSP16, 4)
         CFI Block cfiCond15 Using cfiCommon0
         CFI (cfiCond15) NoFunction
-        CFI (cfiCond15) Conditional ??CrossCallReturnLabel_9
+        CFI (cfiCond15) Conditional ??CrossCallReturnLabel_7
         CFI (cfiCond15) CFA_XSP16 add(XSP16, 4)
         CFI Block cfiCond16 Using cfiCommon0
         CFI (cfiCond16) NoFunction
-        CFI (cfiCond16) Conditional ??CrossCallReturnLabel_10
+        CFI (cfiCond16) Conditional ??CrossCallReturnLabel_8
         CFI (cfiCond16) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI (cfiCond16) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI (cfiCond16) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -1877,18 +1856,18 @@ zmain_ext_addr:
         CFI EndBlock cfiPicker17
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine3:
+?Subroutine2:
         CFI Block cfiCond18 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_12
+        CFI Conditional ??CrossCallReturnLabel_10
         CFI CFA_XSP16 add(XSP16, 2)
         CFI Block cfiCond19 Using cfiCommon0
         CFI (cfiCond19) NoFunction
-        CFI (cfiCond19) Conditional ??CrossCallReturnLabel_13
+        CFI (cfiCond19) Conditional ??CrossCallReturnLabel_11
         CFI (cfiCond19) CFA_XSP16 add(XSP16, 2)
         CFI Block cfiCond20 Using cfiCommon0
         CFI (cfiCond20) NoFunction
-        CFI (cfiCond20) Conditional ??CrossCallReturnLabel_14
+        CFI (cfiCond20) Conditional ??CrossCallReturnLabel_12
         CFI (cfiCond20) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI (cfiCond20) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI (cfiCond20) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -1910,26 +1889,26 @@ zmain_ext_addr:
         CFI EndBlock cfiCond19
         CFI EndBlock cfiCond20
         CFI EndBlock cfiPicker21
-        REQUIRE ??Subroutine7_0
-        ; // Fall through to label ??Subroutine7_0
+        REQUIRE ??Subroutine6_0
+        ; // Fall through to label ??Subroutine6_0
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-??Subroutine7_0:
+??Subroutine6_0:
         CFI Block cfiCond22 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_15
+        CFI Conditional ??CrossCallReturnLabel_13
         CFI CFA_XSP16 add(XSP16, 2)
         CFI Block cfiCond23 Using cfiCommon0
         CFI (cfiCond23) NoFunction
-        CFI (cfiCond23) Conditional ??CrossCallReturnLabel_12
+        CFI (cfiCond23) Conditional ??CrossCallReturnLabel_10
         CFI (cfiCond23) CFA_XSP16 add(XSP16, 2)
         CFI Block cfiCond24 Using cfiCommon0
         CFI (cfiCond24) NoFunction
-        CFI (cfiCond24) Conditional ??CrossCallReturnLabel_13
+        CFI (cfiCond24) Conditional ??CrossCallReturnLabel_11
         CFI (cfiCond24) CFA_XSP16 add(XSP16, 2)
         CFI Block cfiCond25 Using cfiCommon0
         CFI (cfiCond25) NoFunction
-        CFI (cfiCond25) Conditional ??CrossCallReturnLabel_14
+        CFI (cfiCond25) Conditional ??CrossCallReturnLabel_12
         CFI (cfiCond25) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI (cfiCond25) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI (cfiCond25) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -2020,6 +1999,52 @@ zmain_ext_addr:
         CFI EndBlock cfiCond28
         CFI EndBlock cfiCond29
         CFI EndBlock cfiPicker30
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgDefaultChannelList>`:
+        DATA32
+        DD 2048
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgConfigPANID>`:
+        DATA16
+        DW 65535
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??main?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    main
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??zmain_ext_addr?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    zmain_ext_addr
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant {255, 255, 255, 255, 255, 255, 255,`:
+        DB 255
+        DB 255
+        DB 255
+        DB 255
+        DB 255
+        DB 255
+        DB 255
+        DB 255
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "TexasInstruments">`:
+        DB "TexasInstruments"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_800:
+        DD 2048
+
+        END
 //  280 
 //  281 #if defined ZCL_KEY_ESTABLISH
 //  282 /**************************************************************************************************
@@ -2094,55 +2119,8 @@ zmain_ext_addr:
 //  351  * @return      None.
 //  352  **************************************************************************************************
 //  353  */
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
 //  354 static void zmain_dev_info(void)
-zmain_dev_info:
-        CFI Block cfiBlock31 Using cfiCommon0
-        CFI Function zmain_dev_info
-        CODE
 //  355 {
-        FUNCALL zmain_dev_info, HalLcdWriteString
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 27, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 27, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL zmain_dev_info, HalLcdWriteString
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 27, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 27, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        MOV     A,#-0xa
-        LCALL   ?BANKED_ENTER_XDATA
-        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI CFA_SP SP+0
-        CFI CFA_XSP16 add(XSP16, 10)
-        ; Saved register size: 10
-        ; Auto size: 17
-        MOV     A,#-0x11
-        LCALL   ?ALLOC_XSTACK8
-        CFI CFA_XSP16 add(XSP16, 27)
 //  356 #ifdef LCD_SUPPORTED
 //  357   uint8 i;
 //  358   uint8 *xad;
@@ -2150,216 +2128,20 @@ zmain_dev_info:
 //  360 
 //  361   // Display the extended address.
 //  362   xad = aExtendedAddress + Z_EXTADDR_LEN - 1;
-        MOV     R0,#(aExtendedAddress + 7) & 0xff
-        MOV     R1,#((aExtendedAddress + 7) >> 8) & 0xff
 //  363 
 //  364   for (i = 0; i < Z_EXTADDR_LEN*2; xad--)
-        MOV     R4,#0x0
 //  365   {
 //  366     uint8 ch;
 //  367     ch = (*xad >> 4) & 0x0F;
-??zmain_dev_info_0:
-        MOV     DPL,R0
-        MOV     DPH,R1
-        MOVX    A,@DPTR
-        SWAP    A
-        ANL     A,#0xf
-        MOV     R5,A
 //  368     lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
-        MOV     A,R4
-        MOV     R6,A
-        INC     R4
-        MOV     A,R5
-        CLR     C
-        SUBB    A,#0xa
-        JNC     ??zmain_dev_info_1
-        MOV     R2,#0x30
-        SJMP    ??zmain_dev_info_2
-??zmain_dev_info_1:
-        MOV     R2,#0x37
-??zmain_dev_info_2:
-        MOV     A,R2
-        ADD     A,R5
-        PUSH    A
-        CFI CFA_SP SP+-1
-        MOV     ?V0 + 0,R6
-        LCALL   ?Subroutine2 & 0xFFFF
-??CrossCallReturnLabel_3:
-        POP     A
-        CFI CFA_SP SP+0
-        MOVX    @DPTR,A
 //  369     ch = *xad & 0x0F;
-        MOV     DPL,R0
-        MOV     DPH,R1
-        MOVX    A,@DPTR
-        ANL     A,#0xf
-        MOV     R5,A
 //  370     lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
-        MOV     A,R4
-        MOV     R7,A
-        INC     R4
-        MOV     A,R5
-        CLR     C
-        SUBB    A,#0xa
-        JNC     ??zmain_dev_info_3
-        MOV     R2,#0x30
-        SJMP    ??zmain_dev_info_4
-??zmain_dev_info_3:
-        MOV     R2,#0x37
-??zmain_dev_info_4:
-        MOV     A,R2
-        ADD     A,R5
-        PUSH    A
-        CFI CFA_SP SP+-1
-        MOV     ?V0 + 0,R7
-        LCALL   ?Subroutine2 & 0xFFFF
 //  371   }
-??CrossCallReturnLabel_4:
-        POP     A
-        CFI CFA_SP SP+0
-        MOVX    @DPTR,A
-        MOV     A,R0
-        ADD     A,#-0x1
-        DEC     R0
-        MOV     A,R1
-        ADDC    A,#-0x1
-        MOV     R1,A
-        MOV     A,R4
-        CLR     C
-        SUBB    A,#0x10
-        JC      ??zmain_dev_info_0
 //  372   lcd_buf[Z_EXTADDR_LEN*2] = '\0';
-        MOV     A,#0x10
-        LCALL   ?XSTACK_DISP0_8
-        CLR     A
-        MOVX    @DPTR,A
 //  373   HalLcdWriteString( "IEEE: ", HAL_LCD_LINE_1 );
-        ; Setup parameters for call to function HalLcdWriteString
-        MOV     R1,#0x1
-        MOV     R2,#`?<Constant "IEEE: ">` & 0xff
-        MOV     R3,#(`?<Constant "IEEE: ">` >> 8) & 0xff
-        LCALL   ??HalLcdWriteString?relay
 //  374   HalLcdWriteString( (char*)lcd_buf, HAL_LCD_LINE_2 );
-        ; Setup parameters for call to function HalLcdWriteString
-        MOV     R1,#0x2
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     R2,DPL
-        MOV     R3,DPH
-        LCALL   ??HalLcdWriteString?relay
 //  375 #endif
 //  376 }
-        MOV     A,#0x11
-        LCALL   ?DEALLOC_XSTACK8
-        CFI CFA_XSP16 add(XSP16, 10)
-        MOV     R7,#0x2
-        LJMP    ?BANKED_LEAVE_XDATA
-        CFI EndBlock cfiBlock31
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine2:
-        CFI Block cfiCond32 Using cfiCommon0
-        CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_3
-        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI CFA_SP SP+-1
-        CFI CFA_XSP16 add(XSP16, 27)
-        CFI Block cfiCond33 Using cfiCommon0
-        CFI (cfiCond33) NoFunction
-        CFI (cfiCond33) Conditional ??CrossCallReturnLabel_4
-        CFI (cfiCond33) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond33) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond33) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond33) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond33) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond33) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond33) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond33) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond33) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond33) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond33) CFA_SP SP+-1
-        CFI (cfiCond33) CFA_XSP16 add(XSP16, 27)
-        CFI Block cfiPicker34 Using cfiCommon1
-        CFI (cfiPicker34) NoFunction
-        CFI (cfiPicker34) Picker
-        MOV     DPL,?XSP + 0
-        MOV     DPH,?XSP + 1
-        MOV     A,DPL
-        ADD     A,?V0 + 0
-        MOV     DPL,A
-        MOV     A,DPH
-        ADDC    A,#0x0
-        MOV     DPH,A
-        RET
-        CFI EndBlock cfiCond32
-        CFI EndBlock cfiCond33
-        CFI EndBlock cfiPicker34
-
-        RSEG XDATA_ID:CODE:NOROOT(0)
-`?<Initializer for zgDefaultChannelList>`:
-        DATA32
-        DD 2048
-
-        RSEG XDATA_ID:CODE:NOROOT(0)
-`?<Initializer for zgConfigPANID>`:
-        DATA16
-        DW 65535
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-??main?relay:
-        LCALL   ?BDISPATCH
-        DATA
-        DC24    main
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-??zmain_ext_addr?relay:
-        LCALL   ?BDISPATCH
-        DATA
-        DC24    zmain_ext_addr
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-??zmain_dev_info?relay:
-        LCALL   ?BDISPATCH
-        DATA
-        DC24    zmain_dev_info
-
-        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
-        DATA8
-`?<Constant {255, 255, 255, 255, 255, 255, 255,`:
-        DB 255
-        DB 255
-        DB 255
-        DB 255
-        DB 255
-        DB 255
-        DB 255
-        DB 255
-
-        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
-        DATA8
-`?<Constant "IEEE: ">`:
-        DB "IEEE: "
-
-        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
-        DATA8
-`?<Constant "TexasInstruments">`:
-        DB "TexasInstruments"
-
-        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
-        DATA32
-__Constant_800:
-        DD 2048
-
-        END
 //  377 
 //  378 #ifdef LCD_SUPPORTED
 //  379 /*********************************************************************
@@ -2394,18 +2176,18 @@ __Constant_800:
 //  408 /*********************************************************************
 //  409 *********************************************************************/
 // 
-// 958 bytes in segment BANKED_CODE
-//  18 bytes in segment BANK_RELAYS
+// 794 bytes in segment BANKED_CODE
+//  12 bytes in segment BANK_RELAYS
 //   7 bytes in segment SFR_AN
 //   6 bytes in segment XDATA_I
 //   6 bytes in segment XDATA_ID
-//  36 bytes in segment XDATA_ROM_C
+//  29 bytes in segment XDATA_ROM_C
 //   1 byte  in segment XDATA_Z
 // 
-// 982 bytes of CODE  memory
-//  32 bytes of CONST memory (+ 4 bytes shared)
+// 812 bytes of CODE  memory
+//  25 bytes of CONST memory (+ 4 bytes shared)
 //   0 bytes of DATA  memory (+ 7 bytes shared)
 //   7 bytes of XDATA memory
 //
 //Errors: none
-//Warnings: none
+//Warnings: 1

@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         25/Sep/2012  12:11:52 #
+# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         14/Nov/2012  12:31:05 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -12,14 +12,14 @@
 #    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Componen #
 #                          ts\stack\zdo\ZDApp.c                               #
 #    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
-#                          ects\zstack\Samples\GenericApp_TI\CC2530DB\..\..\. #
-#                          .\Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ         #
+#                          ects\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ #
+#                          Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ           #
 #                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
 #                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
 #                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
 #                          -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
-#                          ects\zstack\Samples\GenericApp_TI\CC2530DB\..\..\. #
-#                          .\Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO       #
+#                          ects\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ #
+#                          Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO         #
 #                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
 #                          -DDEFAULT_CHANLIST=0x00000800                      #
 #                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
@@ -47,87 +47,87 @@
 #                          zdo\ZDApp.c" -D ZTOOL_P1 -D MT_TASK -D             #
 #                          LCD_SUPPORTED=DEBUG -D HAL_UART=TRUE -D xNV_INIT   #
 #                          -D NV_RESTORE -D xPOWER_SAVING -D                  #
-#                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -lC           #
+#                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -D            #
+#                          HAL_LED=FALSE -lC "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\testApp_2.5\CC2530DB\CoordinatorEB\List\"   #
+#                          -lA "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro #
+#                          jects\zstack\Samples\testApp_2.5\CC2530DB\Coordina #
+#                          torEB\List\" --diag_suppress Pe001,Pa010 -o        #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\GenericApp_TI\CC2530DB\Coordinato #
-#                          rEB\List\" -lA "C:\Texas                           #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\CoordinatorEB\List\" #
-#                           --diag_suppress Pe001,Pa010 -o "C:\Texas          #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\CoordinatorEB\Obj\"  #
-#                          -e --no_code_motion --debug --core=plain           #
+#                          s\zstack\Samples\testApp_2.5\CC2530DB\CoordinatorE #
+#                          B\Obj\" -e --no_code_motion --debug --core=plain   #
 #                          --dptr=16,1 --data_model=large                     #
 #                          --code_model=banked --calling_convention=xdata_ree #
 #                          ntrant --place_constants=data_rom                  #
 #                          --nr_virtual_regs 16 -I "C:\Texas                  #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\" -I "C:\Texas       #
+#                          amples\testApp_2.5\CC2530DB\" -I "C:\Texas         #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\Source\" -I       #
+#                          amples\testApp_2.5\CC2530DB\..\Source\" -I         #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\GenericApp_TI\CC2530DB\..\..\..\Z #
-#                          Main\TI2530DB\" -I "C:\Texas                       #
+#                          s\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ZMa #
+#                          in\TI2530DB\" -I "C:\Texas                         #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\hal\include\" -I "C:\Texas                   #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\hal\include\" -I "C:\Texas                     #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\hal\target\CC2530EB\" -I "C:\Texas           #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\hal\target\CC2530EB\" -I "C:\Texas             #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\mac\include\" -I "C:\Texas                   #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\include\" -I "C:\Texas                     #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\mac\high_level\" -I "C:\Texas                #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\high_level\" -I "C:\Texas                  #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\mac\low_level\srf04\" -I "C:\Texas           #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\low_level\srf04\" -I "C:\Texas             #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\mac\low_level\srf04\single_chip\" -I         #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\low_level\srf04\single_chip\" -I           #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\GenericApp_TI\CC2530DB\..\..\..\. #
-#                          .\..\Components\mt\" -I "C:\Texas                  #
+#                          s\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\..\ #
+#                          ..\Components\mt\" -I "C:\Texas                    #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\osal\include\" -I "C:\Texas                  #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\osal\include\" -I "C:\Texas                    #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\services\saddr\" -I "C:\Texas                #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\services\saddr\" -I "C:\Texas                  #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\services\sdata\" -I "C:\Texas                #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\services\sdata\" -I "C:\Texas                  #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\af\" -I "C:\Texas                      #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\af\" -I "C:\Texas                        #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\nwk\" -I "C:\Texas                     #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\nwk\" -I "C:\Texas                       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\sapi\" -I "C:\Texas                    #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\sapi\" -I "C:\Texas                      #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\sec\" -I "C:\Texas                     #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\sec\" -I "C:\Texas                       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\sys\" -I "C:\Texas                     #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\sys\" -I "C:\Texas                       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\stack\zdo\" -I "C:\Texas                     #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\stack\zdo\" -I "C:\Texas                       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\zmac\" -I "C:\Texas                          #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\GenericApp_TI\CC2530DB\..\..\..\..\..\Compo #
-#                          nents\zmac\f8w\" -Ohz --require_prototypes         #
+#                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\zmac\" -I "C:\Texas Instruments\ZStack-CC2530- #
+#                          2.5.1a\Projects\zstack\Samples\testApp_2.5\CC2530D #
+#                          B\..\..\..\..\..\Components\zmac\f8w\" -Ohz        #
+#                          --require_prototypes                               #
 #    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
-#                          \zstack\Samples\GenericApp_TI\CC2530DB\Coordinator #
-#                          EB\List\ZDApp.lst                                  #
+#                          \zstack\Samples\testApp_2.5\CC2530DB\CoordinatorEB #
+#                          \List\ZDApp.lst                                    #
 #    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
-#                          \zstack\Samples\GenericApp_TI\CC2530DB\Coordinator #
-#                          EB\Obj\ZDApp.r51                                   #
+#                          \zstack\Samples\testApp_2.5\CC2530DB\CoordinatorEB #
+#                          \Obj\ZDApp.r51                                     #
 #                                                                             #
 #                                                                             #
 ###############################################################################
@@ -5237,7 +5237,7 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
    \   000009   F0           MOVX    @DPTR,A
    2134          
    2135            if ( Status == ZSUCCESS )
-   \   00000A   700A         JNZ     ??ZDO_NetworkFormationConfirmCB_0
+   \   00000A   7008         JNZ     ??ZDO_NetworkFormationConfirmCB_0
    2136            {
    2137              // LED on shows Coordinator started
    2138              HalLedSet ( HAL_LED_3, HAL_LED_MODE_ON );
@@ -5253,32 +5253,26 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
    2146          
    2147              if ( devState == DEV_HOLD )
    \                     ??CrossCallReturnLabel_56:
-   \   00000F   700C         JNZ     ??ZDO_NetworkFormationConfirmCB_1
+   \   00000F   7003         JNZ     ??ZDO_NetworkFormationConfirmCB_0
    2148              {
    2149                // Began with HOLD_AUTO_START
    2150                devState = DEV_COORD_STARTING;
    \   000011   7408         MOV     A,#0x8
    \   000013   F0           MOVX    @DPTR,A
-   \   000014   8007         SJMP    ??ZDO_NetworkFormationConfirmCB_1
    2151              }
    2152            }
    2153          #if defined(BLINK_LEDS)
    2154            else
    2155            {
    2156              HalLedSet ( HAL_LED_3, HAL_LED_MODE_FLASH );  // Flash LED to show failure
-   \                     ??ZDO_NetworkFormationConfirmCB_0:
-   \   000016                ; Setup parameters for call to function HalLedSet
-   \   000016   7A04         MOV     R2,#0x4
-   \   000018   7904         MOV     R1,#0x4
-   \   00001A   12....       LCALL   ??HalLedSet?relay
    2157            }
    2158          #endif
    2159          
    2160            osal_set_event( ZDAppTaskID, ZDO_NETWORK_START );
-   \                     ??ZDO_NetworkFormationConfirmCB_1:
-   \   00001D                ; Setup parameters for call to function osal_set_event
-   \   00001D   7A02         MOV     R2,#0x2
-   \   00001F   02....       LJMP    ?Subroutine0 & 0xFFFF
+   \                     ??ZDO_NetworkFormationConfirmCB_0:
+   \   000014                ; Setup parameters for call to function osal_set_event
+   \   000014   7A02         MOV     R2,#0x2
+   \   000016   02....       LJMP    ?Subroutine0 & 0xFFFF
    2161          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
@@ -5922,7 +5916,7 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
    \   000009   F0           MOVX    @DPTR,A
    2319          
    2320            if ( Status == ZSUCCESS )
-   \   00000A   700A         JNZ     ??ZDO_StartRouterConfirmCB_0
+   \   00000A   7008         JNZ     ??ZDO_StartRouterConfirmCB_0
    2321            {
    2322              // LED on shows Router started
    2323              HalLedSet ( HAL_LED_3, HAL_LED_MODE_ON );
@@ -5932,32 +5926,26 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
    2325              HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF);
    2326              if ( devState == DEV_HOLD )
    \                     ??CrossCallReturnLabel_57:
-   \   00000F   700C         JNZ     ??ZDO_StartRouterConfirmCB_1
+   \   00000F   7003         JNZ     ??ZDO_StartRouterConfirmCB_0
    2327              {
    2328                // Began with HOLD_AUTO_START
    2329                devState = DEV_END_DEVICE;
    \   000011   7406         MOV     A,#0x6
    \   000013   F0           MOVX    @DPTR,A
-   \   000014   8007         SJMP    ??ZDO_StartRouterConfirmCB_1
    2330              }
    2331            }
    2332          #if defined(BLINK_LEDS)
    2333            else
    2334            {
    2335              HalLedSet( HAL_LED_3, HAL_LED_MODE_FLASH );  // Flash LED to show failure
-   \                     ??ZDO_StartRouterConfirmCB_0:
-   \   000016                ; Setup parameters for call to function HalLedSet
-   \   000016   7A04         MOV     R2,#0x4
-   \   000018   7904         MOV     R1,#0x4
-   \   00001A   12....       LCALL   ??HalLedSet?relay
    2336            }
    2337          #endif
    2338          
    2339            osal_set_event( ZDAppTaskID, ZDO_ROUTER_START );
-   \                     ??ZDO_StartRouterConfirmCB_1:
-   \   00001D                ; Setup parameters for call to function osal_set_event
-   \   00001D   7A20         MOV     R2,#0x20
-   \   00001F   02....       LJMP    ?Subroutine0 & 0xFFFF
+   \                     ??ZDO_StartRouterConfirmCB_0:
+   \   000014                ; Setup parameters for call to function osal_set_event
+   \   000014   7A20         MOV     R2,#0x20
+   \   000016   02....       LJMP    ?Subroutine0 & 0xFFFF
    2340          }
    2341          
    2342          /*********************************************************************
@@ -5991,7 +5979,7 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
    \   00000F   F0           MOVX    @DPTR,A
    2358          
    2359            if ( Status == ZSUCCESS )
-   \   000010   700D         JNZ     ??ZDO_JoinConfirmCB_0
+   \   000010   700B         JNZ     ??ZDO_JoinConfirmCB_0
    2360            {
    2361              // LED on shows device joined
    2362              HalLedSet ( HAL_LED_3, HAL_LED_MODE_ON );
@@ -6016,81 +6004,75 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
    \                     ??ZDO_JoinConfirmCB_1:
    \   00001A                ; Setup parameters for call to function ZDApp_NVUpdate
    \   00001A   12....       LCALL   ??ZDApp_NVUpdate?relay
-   \   00001D   8007         SJMP    ??ZDO_JoinConfirmCB_2
    2375              }
    2376            }
    2377            else
    2378            {
    2379          #if defined(BLINK_LEDS)
    2380              HalLedSet ( HAL_LED_3, HAL_LED_MODE_FLASH );  // Flash LED to show failure
-   \                     ??ZDO_JoinConfirmCB_0:
-   \   00001F                ; Setup parameters for call to function HalLedSet
-   \   00001F   7A04         MOV     R2,#0x4
-   \   000021   7904         MOV     R1,#0x4
-   \   000023   12....       LCALL   ??HalLedSet?relay
    2381          #endif
    2382            }
    2383          
    2384            // Pass the join confirm to higher layer if callback registered
    2385            if (zdoCBFunc[ZDO_JOIN_CNF_CBID] != NULL )
-   \                     ??ZDO_JoinConfirmCB_2:
-   \   000026   90....       MOV     DPTR,#zdoCBFunc + 8
-   \   000029   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??ZDO_JoinConfirmCB_0:
+   \   00001D   90....       MOV     DPTR,#zdoCBFunc + 8
+   \   000020   12....       LCALL   ?Subroutine13 & 0xFFFF
    \                     ??CrossCallReturnLabel_15:
-   \   00002C   6033         JZ      ??ZDO_JoinConfirmCB_3
+   \   000023   6033         JZ      ??ZDO_JoinConfirmCB_2
    2386            {
    2387              zdoJoinCnf_t joinCnf;
    2388          
    2389              joinCnf.status = Status;
-   \   00002E   EE           MOV     A,R6
-   \   00002F   85..82       MOV     DPL,?XSP + 0
-   \   000032   85..83       MOV     DPH,?XSP + 1
-   \   000035   F0           MOVX    @DPTR,A
+   \   000025   EE           MOV     A,R6
+   \   000026   85..82       MOV     DPL,?XSP + 0
+   \   000029   85..83       MOV     DPH,?XSP + 1
+   \   00002C   F0           MOVX    @DPTR,A
    2390              joinCnf.deviceAddr = _NIB.nwkDevAddress;
-   \   000036   90....       MOV     DPTR,#_NIB + 20
-   \   000039   12....       LCALL   ??Subroutine50_0 & 0xFFFF
+   \   00002D   90....       MOV     DPTR,#_NIB + 20
+   \   000030   12....       LCALL   ??Subroutine50_0 & 0xFFFF
    \                     ??CrossCallReturnLabel_85:
-   \   00003C   7401         MOV     A,#0x1
-   \   00003E   12....       LCALL   ?XSTACK_DISP0_8
-   \   000041   E8           MOV     A,R0
-   \   000042   F0           MOVX    @DPTR,A
-   \   000043   A3           INC     DPTR
-   \   000044   E9           MOV     A,R1
-   \   000045   F0           MOVX    @DPTR,A
+   \   000033   7401         MOV     A,#0x1
+   \   000035   12....       LCALL   ?XSTACK_DISP0_8
+   \   000038   E8           MOV     A,R0
+   \   000039   F0           MOVX    @DPTR,A
+   \   00003A   A3           INC     DPTR
+   \   00003B   E9           MOV     A,R1
+   \   00003C   F0           MOVX    @DPTR,A
    2391              joinCnf.parentAddr = _NIB.nwkCoordAddress;
-   \   000046   90....       MOV     DPTR,#_NIB + 23
-   \   000049   12....       LCALL   ??Subroutine50_0 & 0xFFFF
+   \   00003D   90....       MOV     DPTR,#_NIB + 23
+   \   000040   12....       LCALL   ??Subroutine50_0 & 0xFFFF
    2392          
    2393              zdoCBFunc[ZDO_JOIN_CNF_CBID]( (void*)&joinCnf );
    2394            }
    \                     ??CrossCallReturnLabel_86:
-   \   00004C   7403         MOV     A,#0x3
-   \   00004E   12....       LCALL   ?XSTACK_DISP0_8
-   \   000051   E8           MOV     A,R0
-   \   000052   F0           MOVX    @DPTR,A
-   \   000053   A3           INC     DPTR
-   \   000054   E9           MOV     A,R1
-   \   000055   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \   000043   7403         MOV     A,#0x3
+   \   000045   12....       LCALL   ?XSTACK_DISP0_8
+   \   000048   E8           MOV     A,R0
+   \   000049   F0           MOVX    @DPTR,A
+   \   00004A   A3           INC     DPTR
+   \   00004B   E9           MOV     A,R1
+   \   00004C   12....       LCALL   ?Subroutine10 & 0xFFFF
    \                     ??CrossCallReturnLabel_5:
-   \   000058   90....       MOV     DPTR,#zdoCBFunc + 8
-   \   00005B   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \   00004F   90....       MOV     DPTR,#zdoCBFunc + 8
+   \   000052   12....       LCALL   ?Subroutine19 & 0xFFFF
    \                     ??CrossCallReturnLabel_130:
-   \   00005E   12....       LCALL   ?CALL_IND
+   \   000055   12....       LCALL   ?CALL_IND
    2395          
    2396            // Notify ZDApp
    2397            ZDApp_SendMsg( ZDAppTaskID, ZDO_NWK_JOIN_IND, sizeof(osal_event_hdr_t), (byte*)NULL );
-   \                     ??ZDO_JoinConfirmCB_3:
-   \   000061                ; Setup parameters for call to function ZDApp_SendMsg
-   \   000061   7C00         MOV     R4,#0x0
-   \   000063   7D00         MOV     R5,#0x0
-   \   000065   7B02         MOV     R3,#0x2
-   \   000067   7A02         MOV     R2,#0x2
-   \   000069   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??ZDO_JoinConfirmCB_2:
+   \   000058                ; Setup parameters for call to function ZDApp_SendMsg
+   \   000058   7C00         MOV     R4,#0x0
+   \   00005A   7D00         MOV     R5,#0x0
+   \   00005C   7B02         MOV     R3,#0x2
+   \   00005E   7A02         MOV     R2,#0x2
+   \   000060   12....       LCALL   ?Subroutine24 & 0xFFFF
    2398          
    2399          }
    \                     ??CrossCallReturnLabel_31:
-   \   00006C                REQUIRE ?Subroutine5
-   \   00006C                ; // Fall through to label ?Subroutine5
+   \   000063                REQUIRE ?Subroutine5
+   \   000063                ; // Fall through to label ?Subroutine5
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine5:
@@ -8153,7 +8135,6 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
        -> HalLedSet                     0      0     28
        -> HalLedSet                     0      0     28
        -> ZDApp_NVUpdate                0      0     28
-       -> HalLedSet                     0      0     28
        -> ZDApp_SendMsg                 0      0     28
      ZDO_JoinIndicationCB               2      0      1
        -> ZDApp_NVUpdate                4      0      0
@@ -8175,13 +8156,11 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
      ZDO_NetworkFormationConfirmCB      0      0      9
        -> HalLedSet                     0      0     18
        -> HalLedSet                     0      0     18
-       -> HalLedSet                     0      0     18
        -> osal_set_event                0      0     18
      ZDO_PollConfirmCB                  0      0      0
      ZDO_RegisterForZdoCB               2      0      0
      ZDO_SrcRtgIndCB                    1      0     14
      ZDO_StartRouterConfirmCB           0      0      9
-       -> HalLedSet                     0      0     18
        -> HalLedSet                     0      0     18
        -> HalLedSet                     0      0     18
        -> osal_set_event                0      0     18
@@ -8310,7 +8289,7 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
      ?Subroutine22                                 10
      ??Subroutine55_0                               6
      ?Subroutine0                                   3
-     ZDO_NetworkFormationConfirmCB                 34
+     ZDO_NetworkFormationConfirmCB                 25
      ?Subroutine39                                 19
      ZDO_beaconNotifyIndCB                        580
      ?Subroutine38                                  9
@@ -8319,8 +8298,8 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
      ?Subroutine20                                  8
      ?Subroutine11                                  7
      ?Subroutine40                                  9
-     ZDO_StartRouterConfirmCB                      34
-     ZDO_JoinConfirmCB                            108
+     ZDO_StartRouterConfirmCB                      25
+     ZDO_JoinConfirmCB                             99
      ?Subroutine5                                   8
      ZDO_AddrChangeIndicationCB                    93
      ?Subroutine18                                  1
@@ -8428,14 +8407,14 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\stack\zdo\ZDApp.c
      ??ZDO_DeregisterForZdoCB?relay                 6
 
  
- 5 979 bytes in segment BANKED_CODE
+ 5 952 bytes in segment BANKED_CODE
    390 bytes in segment BANK_RELAYS
     10 bytes in segment XDATA_I
     10 bytes in segment XDATA_ID
      8 bytes in segment XDATA_ROM_C
     56 bytes in segment XDATA_Z
  
- 6 379 bytes of CODE  memory
+ 6 352 bytes of CODE  memory
      0 bytes of CONST memory (+ 8 bytes shared)
     66 bytes of XDATA memory
 

@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         25/Sep/2012  12:17:12 #
+# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         14/Nov/2012  13:19:55 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -47,26 +47,26 @@
 #                          mmon\hal_drivers.c" -D ZTOOL_P1 -D MT_TASK -D      #
 #                          LCD_SUPPORTED=DEBUG -D HAL_UART=TRUE -D xNV_INIT   #
 #                          -D NV_RESTORE -D xPOWER_SAVING -D                  #
-#                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -lC           #
+#                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -D            #
+#                          HAL_LED=FALSE -lC "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\testApp_2.5\CC2530DB\RouterEB\List\" -lA    #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
 #                          s\zstack\Samples\testApp_2.5\CC2530DB\RouterEB\Lis #
-#                          t\" -lA "C:\Texas Instruments\ZStack-CC2530-2.5.1a #
-#                          \Projects\zstack\Samples\testApp_2.5\CC2530DB\Rout #
-#                          erEB\List\" --diag_suppress Pe001,Pa010 -o         #
-#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\testApp_2.5\CC2530DB\RouterEB\Obj #
-#                          \" -e --no_code_motion --debug --core=plain        #
-#                          --dptr=16,1 --data_model=large                     #
-#                          --code_model=banked --calling_convention=xdata_ree #
-#                          ntrant --place_constants=data_rom                  #
-#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          t\" --diag_suppress Pe001,Pa010 -o "C:\Texas       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\testApp_2.5\CC2530DB\" -I "C:\Texas         #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\testApp_2.5\CC2530DB\..\Source\" -I         #
+#                          amples\testApp_2.5\CC2530DB\RouterEB\Obj\" -e      #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\testApp_2.5\CC2530DB\" -I      #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ZMa #
-#                          in\TI2530DB\" -I "C:\Texas                         #
+#                          s\zstack\Samples\testApp_2.5\CC2530DB\..\Source\"  #
+#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ #
+#                          ZMain\TI2530DB\" -I "C:\Texas                      #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
 #                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
 #                          nts\hal\include\" -I "C:\Texas                     #
@@ -327,22 +327,20 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\hal\common\hal_drivers.c
     155            /* LED */
     156          #if (defined HAL_LED) && (HAL_LED == TRUE)
     157            HalLedInit();
-   \   000010                ; Setup parameters for call to function HalLedInit
-   \   000010   12....       LCALL   ??HalLedInit?relay
     158          #endif
     159          
     160            /* UART */
     161          #if (defined HAL_UART) && (HAL_UART == TRUE)
     162            HalUARTInit();
-   \   000013                ; Setup parameters for call to function HalUARTInit
-   \   000013   12....       LCALL   ??HalUARTInit?relay
+   \   000010                ; Setup parameters for call to function HalUARTInit
+   \   000010   12....       LCALL   ??HalUARTInit?relay
     163          #endif
     164          
     165            /* KEY */
     166          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
     167            HalKeyInit();
-   \   000016                ; Setup parameters for call to function HalKeyInit
-   \   000016   12....       LCALL   ??HalKeyInit?relay
+   \   000013                ; Setup parameters for call to function HalKeyInit
+   \   000013   12....       LCALL   ??HalKeyInit?relay
     168          #endif
     169          
     170            /* SPI */
@@ -355,7 +353,7 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\hal\common\hal_drivers.c
     177            usbHidInit();
     178          #endif
     179          }
-   \   000019   80..         SJMP    ?Subroutine0
+   \   000016   80..         SJMP    ?Subroutine0
     180          
     181          
     182          /**************************************************************************************************
@@ -421,66 +419,64 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\hal\common\hal_drivers.c
    \   000021   6480         XRL     A,#0x80
    \                     ??Hal_ProcessEvent_3:
    \   000023   FB           MOV     R3,A
-   \   000024   8036         SJMP    ??Hal_ProcessEvent_4
+   \   000024   8034         SJMP    ??Hal_ProcessEvent_4
     212            }
     213          
     214            if ( events & HAL_LED_BLINK_EVENT )
    \                     ??Hal_ProcessEvent_0:
    \   000026   EE           MOV     A,R6
    \   000027   5402         ANL     A,#0x2
-   \   000029   600A         JZ      ??Hal_ProcessEvent_5
+   \   000029   6006         JZ      ??Hal_ProcessEvent_5
     215            {
     216          #if (defined (BLINK_LEDS)) && (HAL_LED == TRUE)
     217              HalLedUpdate();
-   \   00002B                ; Setup parameters for call to function HalLedUpdate
-   \   00002B   12....       LCALL   ??HalLedUpdate?relay
     218          #endif /* BLINK_LEDS && HAL_LED */
     219              return events ^ HAL_LED_BLINK_EVENT;
-   \   00002E   EE           MOV     A,R6
-   \   00002F   6402         XRL     A,#0x2
-   \                     ??Hal_ProcessEvent_6:
-   \   000031   FA           MOV     R2,A
-   \   000032   EF           MOV     A,R7
-   \   000033   80EE         SJMP    ??Hal_ProcessEvent_3
+   \   00002B   EE           MOV     A,R6
+   \   00002C   6402         XRL     A,#0x2
+   \   00002E   FA           MOV     R2,A
+   \   00002F   8029         SJMP    ??Hal_ProcessEvent_4
     220            }
     221          
     222            if (events & HAL_KEY_EVENT)
    \                     ??Hal_ProcessEvent_5:
-   \   000035   EE           MOV     A,R6
-   \   000036   A2E0         MOV     C,0xE0 /* A   */.0
-   \   000038   501E         JNC     ??Hal_ProcessEvent_7
+   \   000031   EE           MOV     A,R6
+   \   000032   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000034   5020         JNC     ??Hal_ProcessEvent_6
     223            {
     224          
     225          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
     226              /* Check for keys */
     227              HalKeyPoll();
-   \   00003A                ; Setup parameters for call to function HalKeyPoll
-   \   00003A   12....       LCALL   ??HalKeyPoll?relay
+   \   000036                ; Setup parameters for call to function HalKeyPoll
+   \   000036   12....       LCALL   ??HalKeyPoll?relay
     228          
     229              /* if interrupt disabled, do next polling */
     230              if (!Hal_KeyIntEnable)
-   \   00003D   90....       MOV     DPTR,#Hal_KeyIntEnable
-   \   000040   E0           MOVX    A,@DPTR
-   \   000041   7010         JNZ     ??Hal_ProcessEvent_8
+   \   000039   90....       MOV     DPTR,#Hal_KeyIntEnable
+   \   00003C   E0           MOVX    A,@DPTR
+   \   00003D   7010         JNZ     ??Hal_ProcessEvent_7
     231              {
     232                osal_start_timerEx( Hal_TaskID, HAL_KEY_EVENT, 100);
-   \   000043                ; Setup parameters for call to function osal_start_timerEx
-   \   000043   7C64         MOV     R4,#0x64
-   \   000045   7D00         MOV     R5,#0x0
-   \   000047   7A01         MOV     R2,#0x1
-   \   000049   7B00         MOV     R3,#0x0
-   \   00004B   90....       MOV     DPTR,#Hal_TaskID
-   \   00004E   E0           MOVX    A,@DPTR
-   \   00004F   F9           MOV     R1,A
-   \   000050   12....       LCALL   ??osal_start_timerEx?relay
+   \   00003F                ; Setup parameters for call to function osal_start_timerEx
+   \   00003F   7C64         MOV     R4,#0x64
+   \   000041   7D00         MOV     R5,#0x0
+   \   000043   7A01         MOV     R2,#0x1
+   \   000045   7B00         MOV     R3,#0x0
+   \   000047   90....       MOV     DPTR,#Hal_TaskID
+   \   00004A   E0           MOVX    A,@DPTR
+   \   00004B   F9           MOV     R1,A
+   \   00004C   12....       LCALL   ??osal_start_timerEx?relay
     233              }
     234          #endif // HAL_KEY
     235          
     236              return events ^ HAL_KEY_EVENT;
-   \                     ??Hal_ProcessEvent_8:
-   \   000053   EE           MOV     A,R6
-   \   000054   6401         XRL     A,#0x1
-   \   000056   80D9         SJMP    ??Hal_ProcessEvent_6
+   \                     ??Hal_ProcessEvent_7:
+   \   00004F   EE           MOV     A,R6
+   \   000050   6401         XRL     A,#0x1
+   \   000052   FA           MOV     R2,A
+   \   000053   EF           MOV     A,R7
+   \   000054   80CD         SJMP    ??Hal_ProcessEvent_3
     237            }
     238          
     239          #ifdef POWER_SAVING
@@ -501,12 +497,12 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\hal\common\hal_drivers.c
     254            
     255            /* Nothing interested, discard the message */
     256            return 0;
-   \                     ??Hal_ProcessEvent_7:
-   \   000058   7A00         MOV     R2,#0x0
-   \   00005A   7B00         MOV     R3,#0x0
+   \                     ??Hal_ProcessEvent_6:
+   \   000056   7A00         MOV     R2,#0x0
+   \   000058   7B00         MOV     R3,#0x0
    \                     ??Hal_ProcessEvent_4:
-   \   00005C   7F02         MOV     R7,#0x2
-   \   00005E   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   00005A   7F02         MOV     R7,#0x2
+   \   00005C   02....       LJMP    ?BANKED_LEAVE_XDATA
     257          
     258          }
     259          
@@ -593,7 +589,6 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\hal\common\hal_drivers.c
        -> HalDmaInit              4      0      0
        -> HalAesInit              4      0      0
        -> HalLcdInit              4      0      0
-       -> HalLedInit              4      0      0
        -> HalUARTInit             4      0      0
        -> HalKeyInit              4      0      0
      Hal_Init                     2      0      0
@@ -601,7 +596,6 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\hal\common\hal_drivers.c
        -> osal_msg_receive        0      0     20
        -> osal_msg_deallocate     0      0     20
        -> osal_msg_receive        0      0     20
-       -> HalLedUpdate            0      0     20
        -> HalKeyPoll              0      0     20
        -> osal_start_timerEx      0      0     20
      Hal_ProcessPoll              2      0      0
@@ -615,8 +609,8 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\hal\common\hal_drivers.c
      Hal_TaskID                  1
      Hal_Init                    9
      ?Subroutine0                7
-     HalDriverInit              27
-     Hal_ProcessEvent           97
+     HalDriverInit              24
+     Hal_ProcessEvent           95
      Hal_ProcessPoll            10
      ??Hal_Init?relay            6
      ??HalDriverInit?relay       6
@@ -624,11 +618,11 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\hal\common\hal_drivers.c
      ??Hal_ProcessPoll?relay     6
 
  
- 150 bytes in segment BANKED_CODE
+ 145 bytes in segment BANKED_CODE
   24 bytes in segment BANK_RELAYS
    1 byte  in segment XDATA_Z
  
- 174 bytes of CODE  memory
+ 169 bytes of CODE  memory
    1 byte  of XDATA memory
 
 Errors: none

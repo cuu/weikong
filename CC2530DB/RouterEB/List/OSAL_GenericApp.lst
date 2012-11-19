@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         15/Oct/2012  20:24:07 #
+# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         14/Nov/2012  11:53:27 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -49,7 +49,7 @@
 #                          ZTOOL_P1 -D MT_TASK -D LCD_SUPPORTED=DEBUG -D      #
 #                          HAL_UART=TRUE -D xNV_INIT -D NV_RESTORE -D         #
 #                          xPOWER_SAVING -D BUILD_ALL_DEVICES -D              #
-#                          HOLD_AUTO_START -lC "C:\Texas                      #
+#                          HOLD_AUTO_START -D HAL_LED=FALSE -lC "C:\Texas     #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
 #                          amples\testApp_2.5\CC2530DB\RouterEB\List\" -lA    #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #

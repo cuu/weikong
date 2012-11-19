@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.40338/W32 for 8051        25/Sep/2012  12:12:19 /
+// IAR C/C++ Compiler V8.10.3.40338/W32 for 8051        14/Nov/2012  12:31:18 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -12,14 +12,14 @@
 //    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Compone /
 //                          nts\hal\common\hal_drivers.c                      /
 //    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\GenericApp_TI\CC2530DB\..\.. /
-//                          \..\Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ      /
+//                          jects\zstack\Samples\testApp_2.5\CC2530DB\..\..\. /
+//                          .\Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ        /
 //                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TR /
 //                          UE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8     /
 //                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
 //                          -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\GenericApp_TI\CC2530DB\..\.. /
-//                          \..\Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO    /
+//                          jects\zstack\Samples\testApp_2.5\CC2530DB\..\..\. /
+//                          .\Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO      /
 //                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR      /
 //                          -DDEFAULT_CHANLIST=0x00000800                     /
 //                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
@@ -47,84 +47,84 @@
 //                          ommon\hal_drivers.c" -D ZTOOL_P1 -D MT_TASK -D    /
 //                          LCD_SUPPORTED=DEBUG -D HAL_UART=TRUE -D xNV_INIT  /
 //                          -D NV_RESTORE -D xPOWER_SAVING -D                 /
-//                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -lC          /
+//                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -D           /
+//                          HAL_LED=FALSE -lC "C:\Texas                       /
+//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
+//                          Samples\testApp_2.5\CC2530DB\CoordinatorEB\List\" /
+//                           -lA "C:\Texas Instruments\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Samples\testApp_2.5\CC2530DB\Coord /
+//                          inatorEB\List\" --diag_suppress Pe001,Pa010 -o    /
 //                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\GenericApp_TI\CC2530DB\Coordina /
-//                          torEB\List\" -lA "C:\Texas                        /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\CoordinatorEB\List /
-//                          \" --diag_suppress Pe001,Pa010 -o "C:\Texas       /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\CoordinatorEB\Obj\ /
-//                          " -e --no_code_motion --debug --core=plain        /
-//                          --dptr=16,1 --data_model=large                    /
+//                          ts\zstack\Samples\testApp_2.5\CC2530DB\Coordinato /
+//                          rEB\Obj\" -e --no_code_motion --debug             /
+//                          --core=plain --dptr=16,1 --data_model=large       /
 //                          --code_model=banked --calling_convention=xdata_re /
 //                          entrant --place_constants=data_rom                /
 //                          --nr_virtual_regs 16 -I "C:\Texas                 /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\" -I "C:\Texas     /
+//                          Samples\testApp_2.5\CC2530DB\" -I "C:\Texas       /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\Source\" -I     /
+//                          Samples\testApp_2.5\CC2530DB\..\Source\" -I       /
 //                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\GenericApp_TI\CC2530DB\..\..\.. /
-//                          \ZMain\TI2530DB\" -I "C:\Texas                    /
+//                          ts\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\Z /
+//                          Main\TI2530DB\" -I "C:\Texas                      /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\hal\include\" -I "C:\Texas                /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\hal\include\" -I "C:\Texas                  /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\hal\target\CC2530EB\" -I "C:\Texas        /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\hal\target\CC2530EB\" -I "C:\Texas          /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\include\" -I "C:\Texas                /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\include\" -I "C:\Texas                  /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\high_level\" -I "C:\Texas             /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\high_level\" -I "C:\Texas               /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\low_level\srf04\" -I "C:\Texas        /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\low_level\srf04\" -I "C:\Texas          /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\low_level\srf04\single_chip\" -I      /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\low_level\srf04\single_chip\" -I        /
 //                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\GenericApp_TI\CC2530DB\..\..\.. /
-//                          \..\..\Components\mt\" -I "C:\Texas               /
+//                          ts\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\. /
+//                          .\..\Components\mt\" -I "C:\Texas                 /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\osal\include\" -I "C:\Texas               /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\osal\include\" -I "C:\Texas                 /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\services\saddr\" -I "C:\Texas             /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\services\saddr\" -I "C:\Texas               /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\services\sdata\" -I "C:\Texas             /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\services\sdata\" -I "C:\Texas               /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\af\" -I "C:\Texas                   /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\af\" -I "C:\Texas                     /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\nwk\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\nwk\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\sapi\" -I "C:\Texas                 /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\sapi\" -I "C:\Texas                   /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\sec\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\sec\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\sys\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\sys\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\zdo\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\zdo\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\zmac\" -I "C:\Texas                       /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\zmac\" -I "C:\Texas                         /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\zmac\f8w\" -Ohz --require_prototypes      /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\zmac\f8w\" -Ohz --require_prototypes        /
 //    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project /
-//                          s\zstack\Samples\GenericApp_TI\CC2530DB\Coordinat /
-//                          orEB\List\hal_drivers.s51                         /
+//                          s\zstack\Samples\testApp_2.5\CC2530DB\Coordinator /
+//                          EB\List\hal_drivers.s51                           /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -272,12 +272,10 @@ HalAdcInit          SYMBOL "HalAdcInit"
 HalDmaInit          SYMBOL "HalDmaInit"
 HalAesInit          SYMBOL "HalAesInit"
 HalLcdInit          SYMBOL "HalLcdInit"
-HalLedInit          SYMBOL "HalLedInit"
 HalUARTInit         SYMBOL "HalUARTInit"
 HalKeyInit          SYMBOL "HalKeyInit"
 osal_msg_receive    SYMBOL "osal_msg_receive"
 osal_msg_deallocate SYMBOL "osal_msg_deallocate"
-HalLedUpdate        SYMBOL "HalLedUpdate"
 HalKeyPoll          SYMBOL "HalKeyPoll"
 osal_start_timerEx  SYMBOL "osal_start_timerEx"
 HalUARTPoll         SYMBOL "HalUARTPoll"
@@ -287,8 +285,6 @@ HalUARTPoll         SYMBOL "HalUARTPoll"
 ??HalKeyInit?relay  SYMBOL "?relay", HalKeyInit
 ??HalKeyPoll?relay  SYMBOL "?relay", HalKeyPoll
 ??HalLcdInit?relay  SYMBOL "?relay", HalLcdInit
-??HalLedInit?relay  SYMBOL "?relay", HalLedInit
-??HalLedUpdate?relay SYMBOL "?relay", HalLedUpdate
 ??HalUARTInit?relay SYMBOL "?relay", HalUARTInit
 ??HalUARTPoll?relay SYMBOL "?relay", HalUARTPoll
 ??osal_msg_deallocate?relay SYMBOL "?relay", osal_msg_deallocate
@@ -331,13 +327,6 @@ Hal_ProcessPoll     SYMBOL "Hal_ProcessPoll"
         ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN HalLedInit
-        FUNCTION HalLedInit,0202H
-        ARGFRAME ISTACK, 2, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 0, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
         EXTERN HalUARTInit
         FUNCTION HalUARTInit,0202H
         ARGFRAME ISTACK, 2, STACK
@@ -361,13 +350,6 @@ Hal_ProcessPoll     SYMBOL "Hal_ProcessPoll"
         ARGFRAME DOVERLAY, 0, STATIC
         EXTERN osal_msg_deallocate
         FUNCTION osal_msg_deallocate,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 10, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN HalLedUpdate
-        FUNCTION HalLedUpdate,0202H
         ARGFRAME ISTACK, 0, STACK
         ARGFRAME PSTACK, 0, STACK
         ARGFRAME XSTACK, 10, STACK
@@ -406,10 +388,6 @@ Hal_ProcessPoll     SYMBOL "Hal_ProcessPoll"
         FUNCTION ??HalKeyPoll?relay,00H
         EXTERN ??HalLcdInit?relay
         FUNCTION ??HalLcdInit?relay,00H
-        EXTERN ??HalLedInit?relay
-        FUNCTION ??HalLedInit?relay,00H
-        EXTERN ??HalLedUpdate?relay
-        FUNCTION ??HalLedUpdate?relay,00H
         EXTERN ??HalUARTInit?relay
         FUNCTION ??HalUARTInit?relay,00H
         EXTERN ??HalUARTPoll?relay
@@ -643,17 +621,6 @@ HalDriverInit:
         ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL HalDriverInit, HalLedInit
-        LOCFRAME ISTACK, 2, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 0, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 2, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 0, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
         FUNCALL HalDriverInit, HalUARTInit
         LOCFRAME ISTACK, 2, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -721,8 +688,6 @@ HalDriverInit:
 //  155   /* LED */
 //  156 #if (defined HAL_LED) && (HAL_LED == TRUE)
 //  157   HalLedInit();
-        ; Setup parameters for call to function HalLedInit
-        LCALL   ??HalLedInit?relay
 //  158 #endif
 //  159 
 //  160   /* UART */
@@ -794,17 +759,6 @@ Hal_ProcessEvent:
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         FUNCALL Hal_ProcessEvent, osal_msg_receive
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 10, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 10, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL Hal_ProcessEvent, HalLedUpdate
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
         LOCFRAME XSTACK, 10, STACK
@@ -908,23 +862,19 @@ Hal_ProcessEvent:
 //  215   {
 //  216 #if (defined (BLINK_LEDS)) && (HAL_LED == TRUE)
 //  217     HalLedUpdate();
-        ; Setup parameters for call to function HalLedUpdate
-        LCALL   ??HalLedUpdate?relay
 //  218 #endif /* BLINK_LEDS && HAL_LED */
 //  219     return events ^ HAL_LED_BLINK_EVENT;
         MOV     A,R6
         XRL     A,#0x2
-??Hal_ProcessEvent_6:
         MOV     R2,A
-        MOV     A,R7
-        SJMP    ??Hal_ProcessEvent_3
+        SJMP    ??Hal_ProcessEvent_4
 //  220   }
 //  221 
 //  222   if (events & HAL_KEY_EVENT)
 ??Hal_ProcessEvent_5:
         MOV     A,R6
         MOV     C,0xE0 /* A   */.0
-        JNC     ??Hal_ProcessEvent_7
+        JNC     ??Hal_ProcessEvent_6
 //  223   {
 //  224 
 //  225 #if (defined HAL_KEY) && (HAL_KEY == TRUE)
@@ -937,7 +887,7 @@ Hal_ProcessEvent:
 //  230     if (!Hal_KeyIntEnable)
         MOV     DPTR,#Hal_KeyIntEnable
         MOVX    A,@DPTR
-        JNZ     ??Hal_ProcessEvent_8
+        JNZ     ??Hal_ProcessEvent_7
 //  231     {
 //  232       osal_start_timerEx( Hal_TaskID, HAL_KEY_EVENT, 100);
         ; Setup parameters for call to function osal_start_timerEx
@@ -953,10 +903,12 @@ Hal_ProcessEvent:
 //  234 #endif // HAL_KEY
 //  235 
 //  236     return events ^ HAL_KEY_EVENT;
-??Hal_ProcessEvent_8:
+??Hal_ProcessEvent_7:
         MOV     A,R6
         XRL     A,#0x1
-        SJMP    ??Hal_ProcessEvent_6
+        MOV     R2,A
+        MOV     A,R7
+        SJMP    ??Hal_ProcessEvent_3
 //  237   }
 //  238 
 //  239 #ifdef POWER_SAVING
@@ -977,7 +929,7 @@ Hal_ProcessEvent:
 //  254   
 //  255   /* Nothing interested, discard the message */
 //  256   return 0;
-??Hal_ProcessEvent_7:
+??Hal_ProcessEvent_6:
         MOV     R2,#0x0
         MOV     R3,#0x0
 ??Hal_ProcessEvent_4:
@@ -1086,11 +1038,11 @@ Hal_ProcessPoll:
 //  301 **************************************************************************************************/
 //  302 
 // 
-// 150 bytes in segment BANKED_CODE
+// 145 bytes in segment BANKED_CODE
 //  24 bytes in segment BANK_RELAYS
 //   1 byte  in segment XDATA_Z
 // 
-// 174 bytes of CODE  memory
+// 169 bytes of CODE  memory
 //   1 byte  of XDATA memory
 //
 //Errors: none

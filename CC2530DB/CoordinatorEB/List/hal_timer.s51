@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.40338/W32 for 8051        25/Sep/2012  12:11:41 /
+// IAR C/C++ Compiler V8.10.3.40338/W32 for 8051        14/Nov/2012  12:31:20 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -12,14 +12,14 @@
 //    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Compone /
 //                          nts\hal\target\CC2530EB\hal_timer.c               /
 //    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\GenericApp_TI\CC2530DB\..\.. /
-//                          \..\Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ      /
+//                          jects\zstack\Samples\testApp_2.5\CC2530DB\..\..\. /
+//                          .\Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ        /
 //                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TR /
 //                          UE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8     /
 //                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
 //                          -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\GenericApp_TI\CC2530DB\..\.. /
-//                          \..\Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO    /
+//                          jects\zstack\Samples\testApp_2.5\CC2530DB\..\..\. /
+//                          .\Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO      /
 //                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR      /
 //                          -DDEFAULT_CHANLIST=0x00000800                     /
 //                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
@@ -47,84 +47,84 @@
 //                          arget\CC2530EB\hal_timer.c" -D ZTOOL_P1 -D        /
 //                          MT_TASK -D LCD_SUPPORTED=DEBUG -D HAL_UART=TRUE   /
 //                          -D xNV_INIT -D NV_RESTORE -D xPOWER_SAVING -D     /
-//                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -lC          /
+//                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -D           /
+//                          HAL_LED=FALSE -lC "C:\Texas                       /
+//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
+//                          Samples\testApp_2.5\CC2530DB\CoordinatorEB\List\" /
+//                           -lA "C:\Texas Instruments\ZStack-CC2530-2.5.1a\P /
+//                          rojects\zstack\Samples\testApp_2.5\CC2530DB\Coord /
+//                          inatorEB\List\" --diag_suppress Pe001,Pa010 -o    /
 //                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\GenericApp_TI\CC2530DB\Coordina /
-//                          torEB\List\" -lA "C:\Texas                        /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\CoordinatorEB\List /
-//                          \" --diag_suppress Pe001,Pa010 -o "C:\Texas       /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\CoordinatorEB\Obj\ /
-//                          " -e --no_code_motion --debug --core=plain        /
-//                          --dptr=16,1 --data_model=large                    /
+//                          ts\zstack\Samples\testApp_2.5\CC2530DB\Coordinato /
+//                          rEB\Obj\" -e --no_code_motion --debug             /
+//                          --core=plain --dptr=16,1 --data_model=large       /
 //                          --code_model=banked --calling_convention=xdata_re /
 //                          entrant --place_constants=data_rom                /
 //                          --nr_virtual_regs 16 -I "C:\Texas                 /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\" -I "C:\Texas     /
+//                          Samples\testApp_2.5\CC2530DB\" -I "C:\Texas       /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\Source\" -I     /
+//                          Samples\testApp_2.5\CC2530DB\..\Source\" -I       /
 //                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\GenericApp_TI\CC2530DB\..\..\.. /
-//                          \ZMain\TI2530DB\" -I "C:\Texas                    /
+//                          ts\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\Z /
+//                          Main\TI2530DB\" -I "C:\Texas                      /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\hal\include\" -I "C:\Texas                /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\hal\include\" -I "C:\Texas                  /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\hal\target\CC2530EB\" -I "C:\Texas        /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\hal\target\CC2530EB\" -I "C:\Texas          /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\include\" -I "C:\Texas                /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\include\" -I "C:\Texas                  /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\high_level\" -I "C:\Texas             /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\high_level\" -I "C:\Texas               /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\low_level\srf04\" -I "C:\Texas        /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\low_level\srf04\" -I "C:\Texas          /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\mac\low_level\srf04\single_chip\" -I      /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\mac\low_level\srf04\single_chip\" -I        /
 //                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\GenericApp_TI\CC2530DB\..\..\.. /
-//                          \..\..\Components\mt\" -I "C:\Texas               /
+//                          ts\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\. /
+//                          .\..\Components\mt\" -I "C:\Texas                 /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\osal\include\" -I "C:\Texas               /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\osal\include\" -I "C:\Texas                 /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\services\saddr\" -I "C:\Texas             /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\services\saddr\" -I "C:\Texas               /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\services\sdata\" -I "C:\Texas             /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\services\sdata\" -I "C:\Texas               /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\af\" -I "C:\Texas                   /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\af\" -I "C:\Texas                     /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\nwk\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\nwk\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\sapi\" -I "C:\Texas                 /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\sapi\" -I "C:\Texas                   /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\sec\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\sec\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\sys\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\sys\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\stack\zdo\" -I "C:\Texas                  /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\stack\zdo\" -I "C:\Texas                    /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\zmac\" -I "C:\Texas                       /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\zmac\" -I "C:\Texas                         /
 //                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\GenericApp_TI\CC2530DB\..\..\..\..\..\Com /
-//                          ponents\zmac\f8w\" -Ohz --require_prototypes      /
+//                          Samples\testApp_2.5\CC2530DB\..\..\..\..\..\Compo /
+//                          nents\zmac\f8w\" -Ohz --require_prototypes        /
 //    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project /
-//                          s\zstack\Samples\GenericApp_TI\CC2530DB\Coordinat /
-//                          orEB\List\hal_timer.s51                           /
+//                          s\zstack\Samples\testApp_2.5\CC2530DB\Coordinator /
+//                          EB\List\hal_timer.s51                             /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////

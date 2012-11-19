@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         25/Sep/2012  12:17:30 #
+# IAR C/C++ Compiler V8.10.3.40338/W32 for 8051         14/Nov/2012  13:20:10 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -47,26 +47,26 @@
 #                          NWK.c" -D ZTOOL_P1 -D MT_TASK -D                   #
 #                          LCD_SUPPORTED=DEBUG -D HAL_UART=TRUE -D xNV_INIT   #
 #                          -D NV_RESTORE -D xPOWER_SAVING -D                  #
-#                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -lC           #
+#                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -D            #
+#                          HAL_LED=FALSE -lC "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
+#                          amples\testApp_2.5\CC2530DB\RouterEB\List\" -lA    #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
 #                          s\zstack\Samples\testApp_2.5\CC2530DB\RouterEB\Lis #
-#                          t\" -lA "C:\Texas Instruments\ZStack-CC2530-2.5.1a #
-#                          \Projects\zstack\Samples\testApp_2.5\CC2530DB\Rout #
-#                          erEB\List\" --diag_suppress Pe001,Pa010 -o         #
-#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\testApp_2.5\CC2530DB\RouterEB\Obj #
-#                          \" -e --no_code_motion --debug --core=plain        #
-#                          --dptr=16,1 --data_model=large                     #
-#                          --code_model=banked --calling_convention=xdata_ree #
-#                          ntrant --place_constants=data_rom                  #
-#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          t\" --diag_suppress Pe001,Pa010 -o "C:\Texas       #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\testApp_2.5\CC2530DB\" -I "C:\Texas         #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\testApp_2.5\CC2530DB\..\Source\" -I         #
+#                          amples\testApp_2.5\CC2530DB\RouterEB\Obj\" -e      #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\testApp_2.5\CC2530DB\" -I      #
 #                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ZMa #
-#                          in\TI2530DB\" -I "C:\Texas                         #
+#                          s\zstack\Samples\testApp_2.5\CC2530DB\..\Source\"  #
+#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
+#                          ects\zstack\Samples\testApp_2.5\CC2530DB\..\..\..\ #
+#                          ZMain\TI2530DB\" -I "C:\Texas                      #
 #                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
 #                          amples\testApp_2.5\CC2530DB\..\..\..\..\..\Compone #
 #                          nts\hal\include\" -I "C:\Texas                     #
