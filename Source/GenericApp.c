@@ -48,6 +48,9 @@ extern uint8 FUCK_TI_KEY1; //
 extern uint8 FUCK_TI_KEY7;
 ///-----------------------------
 
+uint8 io1_flag,io2_flag,io3_flag,io4_flag;  //
+uint8 of_flag_1,of_flag_2,of_flag_3,of_flag_4;  // on or off ?
+uint8 type_flag_1,type_flag_2,type_flag_3,type_flag_4;  // virtual type
 
 uint16 devlist[ NWK_MAX_DEVICES + 1];
 uint8* ieeeAddr;
@@ -166,7 +169,7 @@ void uprint( uint8 * Data)
 }
 
 
-void parse_procotol(uint8*buff, uint8 len)
+void parse_procotol(uint8*buff, uint8 len,uint16 shortaddr)
 {
    
   uint8 logicalType;
@@ -179,16 +182,31 @@ void parse_procotol(uint8*buff, uint8 len)
   
   if(len == 1)
   {
-        if(buff[0] == 0x01)
+        if(buff[0] == 0x01) // broadcast to all nodes
         {
-          SendData( 0xffff, buff, 1); 
-          return;
+          if(shortaddr == 0x9999)
+          {
+            SendData( 0xffff, buff, 1); 
+            return;
+          }else
+          {
+            pbuf[0] = 0x02;
+            pbuf[1] = LO_UINT16(_NIB.nwkDevAddress);
+            pbuf[2] = HI_UINT16(_NIB.nwkDevAddress);
+            SendData( shortaddr, pbuf, 3);
+          }
         } 
         if(buff[0]== 0x02)
         {
           /// short address
-          UART_Send_String( (uint8*)&_NIB.nwkDevAddress, 2);
-          
+          if(shortaddr == 0x9999)
+          {
+            UART_Send_String( (uint8*)&_NIB.nwkDevAddress, 2);
+            return;
+          }else
+          {
+            
+          }
         }
         if(buff[0] == 0x05)
         {
@@ -592,7 +610,10 @@ void parse_procotol(uint8*buff, uint8 len)
         
         if(buff[0] == 'p' && buff[1] == 'i' && buff[2]=='n' && buff[3] == 'g')
         {
-            uprint("pong");
+            if(shortaddr== 0x9999)
+            {
+              uprint("pong");
+            }
         }
       
       }
@@ -642,6 +663,22 @@ void parse_procotol(uint8*buff, uint8 len)
         }
       }
     }
+  
+      if(buff[0] == 0xd8 ) // d8 xx xx i o t ,etc,d8 xx xx ed f[a,c,f] 01
+      {
+          //short_ddr = BUILD_UINT16(buff[1],buff[2]);
+         // if(short_ddr != 0x0000)
+          //{
+            if( shortaddr != 0x9999)
+            {
+              SendData( shortaddr, &buff[3], readBytes - 3);
+            }
+          //}else
+          //{
+            // send to myself
+          //}
+            return;
+      }
 }
 
 static void Serial_callBack(uint8 port, uint8 event)
@@ -782,6 +819,8 @@ static void Serial_callBack(uint8 port, uint8 event)
       
     }
 
+      parse_procotol( &buff[0], readBytes,0x9999); // 0x9999 means serial callback
+      
 
   }  
 }
@@ -837,7 +876,15 @@ void io_init(void)
   P1_1 = 0;
   P1_0 = 0;
   
+
+  cb_ReadConfiguration( IO_T_1, 1, &type_flag_1 );
+   cb_ReadConfiguration( IO_T_2, 1, &type_flag_2 );
+    cb_ReadConfiguration( IO_T_3, 1, &type_flag_3 );
+     cb_ReadConfiguration( IO_T_4, 1, &type_flag_4 );
+     
    
+     
+  
 }
 
 void set_panid( uint16 u16NewPanid)
@@ -1342,6 +1389,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
   switch ( pkt->clusterId )
   {
     case GENERICAPP_CLUSTERID:
+      
     if( pkt->cmd.DataLength == 1)
     {      
         yy1 = 1;
@@ -1351,6 +1399,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
           buff[1] = LO_UINT16(_NIB.nwkDevAddress);
           buff[2] = HI_UINT16(_NIB.nwkDevAddress);
           SendData( pkt->srcAddr.addr.shortAddr, buff, 3);
+          return;
         }
 #if !defined( ZDO_COORDINATOR ) 
         if(pkt->cmd.Data[0] == 0x03)
@@ -1370,7 +1419,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
                           &GenericApp_TransID,
                           AF_DISCV_ROUTE, AF_DEFAULT_RADIUS );
                  
-            
+            return;
         }
         // only routers return devlist
         if( pkt->cmd.Data[0] == 0xCA )
@@ -1379,7 +1428,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
                myaddr.endPoint = GENERICAPP_ENDPOINT;          
                myaddr.addr.shortAddr = 0x0000;
           
-        ass_num = AssocCount(0, 4);
+            ass_num = AssocCount(0, 4);
       //  if( ass_num > 0)
         //{
           for(i=0;i< NWK_MAX_DEVICES; i++)
@@ -1436,6 +1485,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
             //p1 = AssocMakeList( &cnt );
             //UART_Send_String( (uint8*)p1,  AssocCount(1, 4)*2);
             //osal_mem_free(p1);
+          return;
         }
 #endif  
         
@@ -1445,6 +1495,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
     { 
         //ed fa 01 ,turn on led 1
         //ed ff 01  turn off led 1
+      /*
         if( pkt->cmd.Data[0] == 0xed  && pkt->cmd.Data[1] == 0xfa )
         {
             switch(pkt->cmd.Data[2])
@@ -1485,7 +1536,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
               default:break;
             }          
         }
-        
+        */
     } // if( pkt->cmd.DataLength == 3)
     if( pkt->cmd.DataLength == 4)
     {
@@ -1501,13 +1552,10 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
           buff[5] = u8p[3];
           
           SendData( pkt->srcAddr.addr.shortAddr, buff, 6);
+          return;
       }
     }
-    
-#if defined( LCD_SUPPORTED )
-      UART_Send_String( &pkt->cmd.Data[0], pkt->cmd.DataLength);
-#endif
-    
+        
       break;
   default:break;
   }

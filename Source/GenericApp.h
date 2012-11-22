@@ -114,22 +114,24 @@ extern UINT16 GenericApp_ProcessEvent( byte task_id, UINT16 events );
 #define IO_T_2 0x0203
 #define IO_T_3 0x0204
 #define IO_T_4 0x0205
+/*
 #define IO_T_5 0x0206
 #define IO_T_6 0x0207
 #define IO_T_7 0x0208
 #define IO_T_8 0x0209
-
+*/
 //IO_C io cmd content
 #define IO_C_1 0x0210
 #define IO_C_2 0x0211
 #define IO_C_3 0x0212
 #define IO_C_4 0x0213
+/*
 #define IO_C_5 0x0214
 #define IO_C_6 0x0215
 #define IO_C_7 0x0216
 #define IO_C_8 0x0217
+*/
 
-
-void parse_procotol(uint8*, uint8 );
+void parse_procotol(uint8*, uint8 ,uint16);
 
 #endif /* GENERICAPP_H */
