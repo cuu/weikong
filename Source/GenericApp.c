@@ -194,6 +194,7 @@ void parse_procotol(uint8*buff, uint8 len,uint16 shortaddr)
             pbuf[1] = LO_UINT16(_NIB.nwkDevAddress);
             pbuf[2] = HI_UINT16(_NIB.nwkDevAddress);
             SendData( shortaddr, pbuf, 3);
+            return;
           }
         } 
         if(buff[0]== 0x02)
@@ -215,13 +216,25 @@ void parse_procotol(uint8*buff, uint8 len,uint16 shortaddr)
           pbuf[1] = LO_UINT16(_NIB.nwkPanId);
           pbuf[2] = HI_UINT16(_NIB.nwkPanId);
           
-          UART_Send_String( (uint8*)&pbuf, 3);          
+          if( shortaddr == 0x9999)
+          {
+            UART_Send_String( (uint8*)&pbuf, 3);    return;
+          }else
+          {
+            SendData( shortaddr, pbuf, 3); return;
+          }
         }
         if(buff[0] == 0x07)/// channel
         {
             pbuf[0] = 0x08;
             pbuf[1] = _NIB.nwkLogicalChannel;
-            UART_Send_String( (uint8*)&pbuf, 2);
+            if(shortaddr == 0x9999)
+            {
+              UART_Send_String( (uint8*)&pbuf, 2); return;
+            }else
+            {
+              SendData( shortaddr, pbuf, 2); return;
+            }
         }
         if(buff[0] ==0x03) // mac address
         {
@@ -229,8 +242,13 @@ void parse_procotol(uint8*buff, uint8 len,uint16 shortaddr)
             
             pbuf2[0] = 0x04;
             strncpy(&pbuf2[1], ieeeAddr,8);
-            
-            UART_Send_String( (uint8*)&pbuf2, 9);
+            if(shortaddr == 0x9999)
+            {
+              UART_Send_String( (uint8*)&pbuf2, 9); return;
+            }else
+            {
+              SendData( shortaddr, pbuf2, 9); return;
+            }
             
         }
         if( buff[0] ==0xc0) // coordinator 
@@ -664,14 +682,15 @@ void parse_procotol(uint8*buff, uint8 len,uint16 shortaddr)
       }
     }
   
-      if(buff[0] == 0xd8 ) // d8 xx xx i o t ,etc,d8 xx xx ed f[a,c,f] 01
+      if(buff[0] == 0xd8 && len > 3 ) // d8 xx xx i o t ,etc,d8 xx xx ed f[a,c,f] 01
       {
+        //在这里有d8这个指令，很有趣，可以实现 2点转发 A->B->C
           //short_ddr = BUILD_UINT16(buff[1],buff[2]);
          // if(short_ddr != 0x0000)
           //{
             if( shortaddr != 0x9999)
             {
-              SendData( shortaddr, &buff[3], readBytes - 3);
+              SendData( BUILD_UINT16(buff[1],buff[2]), &buff[3], len - 3);
             }
           //}else
           //{
@@ -875,15 +894,7 @@ void io_init(void)
  // P0_7 = 1;
   P1_1 = 0;
   P1_0 = 0;
-  
-
-  cb_ReadConfiguration( IO_T_1, 1, &type_flag_1 );
-   cb_ReadConfiguration( IO_T_2, 1, &type_flag_2 );
-    cb_ReadConfiguration( IO_T_3, 1, &type_flag_3 );
-     cb_ReadConfiguration( IO_T_4, 1, &type_flag_4 );
-     
-   
-     
+      
   
 }
 
