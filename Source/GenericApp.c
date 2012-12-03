@@ -241,13 +241,17 @@ void parse_procotol(uint8*buff, uint8 len,uint16 shortaddr)
             ieeeAddr = NLME_GetExtAddr();
             
             pbuf2[0] = 0x04;
-            strncpy(&pbuf2[1], ieeeAddr,8);
             if(shortaddr == 0x9999)
             {
+              strncpy(&pbuf2[1], ieeeAddr,8);
               UART_Send_String( (uint8*)&pbuf2, 9); return;
             }else
             {
-              SendData( shortaddr, pbuf2, 9); return;
+              osal_cpyExtAddr(pbuf2+3, ieeeAddr);
+              pbuf2[1] = LO_UINT16(_NIB.nwkDevAddress);
+              pbuf2[2] = HI_UINT16(_NIB.nwkDevAddress);
+            
+              SendData( shortaddr, pbuf2, 11); return;
             }
             
         }
@@ -688,14 +692,15 @@ void parse_procotol(uint8*buff, uint8 len,uint16 shortaddr)
           //short_ddr = BUILD_UINT16(buff[1],buff[2]);
          // if(short_ddr != 0x0000)
           //{
-            if( shortaddr != 0x9999)
-            {
+           //if( shortaddr != 0x9999)
+            //{
               SendData( BUILD_UINT16(buff[1],buff[2]), &buff[3], len - 3);
-            }
-          //}else
-          //{
-            // send to myself
-          //}
+           // }
+           // else
+           // {
+              // send to myself
+               
+           // }
             return;
       }
 }
@@ -704,27 +709,16 @@ static void Serial_callBack(uint8 port, uint8 event)
 {
   
   zAddrType_t dstAddr;
-
-  
   uint8 buff[32];
   uint8 readBytes = 0;
-  
-
-  
-  uint8 yy1;
-
-  
+  uint8 yy1; 
   uint8 i;
   byte nr;  
-  
-
-  
-
+ 
   //short_ddr = GenericApp_DstAddr.addr.shortAddr;
 
 //     uint16 devlist[ NWK_MAX_DEVICES + 1];
     
-  
   readBytes = HalUARTRead(SER_PORT, buff, 31);
   if (readBytes > 0)
   {
@@ -741,8 +735,8 @@ static void Serial_callBack(uint8 port, uint8 event)
           for(i=0;i< NWK_MAX_DEVICES; i++)
           {
              nr = AssociatedDevList[ i ].nodeRelation;
-             //if(nr > 0 && nr < 5) //CHILD_RFD CHILD_RFD_RX_IDLE CHILD_FFD CHILD_FFD_RX_IDLE
-             if( nr != 0XFF)
+             if(nr > 0 && nr < 5) //CHILD_RFD CHILD_RFD_RX_IDLE CHILD_FFD CHILD_FFD_RX_IDLE
+             //if( nr != 0XFF)
              {
                //   myaddr.addrMode = (afAddrMode_t)Addr16Bit;
                //   myaddr.endPoint = GENERICAPP_ENDPOINT;
@@ -892,8 +886,8 @@ void io_init(void)
  // P0IFG &= ~0x01;
   P1DIR |= 0x03; 
  // P0_7 = 1;
-  P1_1 = 0;
-  P1_0 = 0;
+  P1_1 = 1;
+  P1_0 = 1;
       
   
 }
@@ -1400,10 +1394,11 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
   switch ( pkt->clusterId )
   {
     case GENERICAPP_CLUSTERID:
-      
+    
     if( pkt->cmd.DataLength == 1)
     {      
         yy1 = 1;
+        /*
         if(pkt->cmd.Data[0] == 0x01) /// GET short address 
         {
           buff[0] = 0x02;
@@ -1412,7 +1407,9 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
           SendData( pkt->srcAddr.addr.shortAddr, buff, 3);
           return;
         }
-#if !defined( ZDO_COORDINATOR ) 
+        */
+
+        /*
         if(pkt->cmd.Data[0] == 0x03)
         {
           /// return mac address : ac xx xx ieee addr
@@ -1432,6 +1429,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
                  
             return;
         }
+        */
         // only routers return devlist
         if( pkt->cmd.Data[0] == 0xCA )
         {
@@ -1439,7 +1437,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
                myaddr.endPoint = GENERICAPP_ENDPOINT;          
                myaddr.addr.shortAddr = 0x0000;
           
-            ass_num = AssocCount(0, 4);
+               ass_num = AssocCount(0, 4);
       //  if( ass_num > 0)
         //{
           for(i=0;i< NWK_MAX_DEVICES; i++)
@@ -1454,14 +1452,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
                   //if( AssocIsChild( AssociatedDevList[ i ].shortAddr ) == 1 && AssociatedDevList[ i ].age > NWK_ROUTE_AGE_LIMIT )
                  // {
                     //  myaddr.addr.shortAddr = AssociatedDevList[ i ].shortAddr;
-                      /*
-                      if ( AF_DataRequest( &myaddr, &GenericApp_epDesc, GENERICAPP_CLUSTERID,(byte)osal_strlen( theMessageData ) + 1,
-                              (byte *)&theMessageData,
-                              &GenericApp_TransID,
-                              AF_ACK_REQUEST, AF_DEFAULT_RADIUS ) != afStatus_SUCCESS )
-                        {
-                          uprint("delete asso");
-                        */
+
                    //       delete_asso( AssociatedDevList[ i ]. addrIdx);
                           
                   // }
@@ -1498,57 +1489,9 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
             //osal_mem_free(p1);
           return;
         }
-#endif  
         
     } //if( pkt->cmd.DataLength == 1)
     
-    if( pkt->cmd.DataLength == 3)
-    { 
-        //ed fa 01 ,turn on led 1
-        //ed ff 01  turn off led 1
-      /*
-        if( pkt->cmd.Data[0] == 0xed  && pkt->cmd.Data[1] == 0xfa )
-        {
-            switch(pkt->cmd.Data[2])
-            {
-              case 0x01:
-                LED1 = 1;
-                break;
-              case 0x02:
-                 LED2 = 1;
-                break;
-              default:break;
-            }
-                   
-        }
-        if( pkt->cmd.Data[0] == 0xed  && pkt->cmd.Data[1] == 0xff )
-        {
-            switch(pkt->cmd.Data[2])
-            {
-              case 0x01:
-                LED1 = 0;
-                break;
-              case 0x02:
-                 LED2 = 0;
-                break;
-              default:break;
-            }          
-        }
-        if( pkt->cmd.Data[0] == 0xed  && pkt->cmd.Data[1] == 0xfc ) //只是取反
-        {
-            switch(pkt->cmd.Data[2])
-            {
-              case 0x01:
-                LED1 = !LED1;
-                break;
-              case 0x02:
-                 LED2 = !LED2;
-                break;
-              default:break;
-            }          
-        }
-        */
-    } // if( pkt->cmd.DataLength == 3)
     if( pkt->cmd.DataLength == 4)
     {
       if( pkt->cmd.Data[0] == 'p' && pkt->cmd.Data[1] =='i' && pkt->cmd.Data[2] == 'n' && pkt->cmd.Data[3] == 'g')
@@ -1566,7 +1509,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
           return;
       }
     }
-        
+    parse_procotol( pkt->cmd.Data,  pkt->cmd.DataLength , pkt->srcAddr.addr.shortAddr);
       break;
   default:break;
   }
@@ -1587,12 +1530,8 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
  */
 static void GenericApp_SendTheMessage( afIncomingMSGPacket_t *pkt )
 {
-  
 
-  
-  char theMessageData[] = "Hello World";
-
-  
+  char theMessageData[] = "Hello World";  
   if ( AF_DataRequest( &pkt->srcAddr, &GenericApp_epDesc,
                        GENERICAPP_CLUSTERID,
                        (byte)osal_strlen( theMessageData ) + 1,
@@ -1672,7 +1611,7 @@ __interrupt static void T3_IRQ(void)
    t3_counter++;
    if(t3_counter > 911) // this is about 1 seconds
    {
-     uprint("t3 overflowed");
+     //uprint("t3 overflowed");
      t3_counter=0;
    }
 }
