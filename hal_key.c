@@ -101,6 +101,9 @@
 uint8 FUCK_TI_KEY1;
 uint8 FUCK_TI_KEY7;
 
+short PREV_KEY1; // 记录上一 次 中断时 ，电平位置
+short PREV_KEY7; // 同上
+
 #define HAL_KEY_RISING_EDGE   0
 #define HAL_KEY_FALLING_EDGE  1
 
@@ -113,7 +116,7 @@ uint8 FUCK_TI_KEY7;
 
 /* SW_6 is at P0.1 */
 #define HAL_KEY_SW_6_PORT   P0
-#define HAL_KEY_SW_6_BIT    BV(1)
+#define HAL_KEY_SW_6_BIT    BV(0)
 #define HAL_KEY_SW_6_SEL    P0SEL
 #define HAL_KEY_SW_6_DIR    P0DIR
 
@@ -126,22 +129,22 @@ uint8 FUCK_TI_KEY7;
 #define HAL_KEY_SW_6_IEN      IEN1  /* CPU interrupt mask register */
 #define HAL_KEY_SW_6_IENBIT   BV(5) /* Mask bit for all of Port_0 */
 #define HAL_KEY_SW_6_ICTL     P0IEN /* Port Interrupt Control register */
-#define HAL_KEY_SW_6_ICTLBIT  BV(1) /* P0IEN - P0.1 enable/disable bit */
+#define HAL_KEY_SW_6_ICTLBIT  BV(0) /* P0IEN - P0.0 enable/disable bit */
 #define HAL_KEY_SW_6_PXIFG    P0IFG /* Interrupt flag at source */
 
 
 #define HAL_KEY_SW_7_PORT   P1
-#define HAL_KEY_SW_7_BIT    BV(6)
+#define HAL_KEY_SW_7_BIT    BV(2)
 #define HAL_KEY_SW_7_SEL    P1SEL
 #define HAL_KEY_SW_7_DIR    P1DIR
 
-#define HAL_KEY_SW_7_EDGEBIT  BV(2)
+#define HAL_KEY_SW_7_EDGEBIT  BV(1)
 #define HAL_KEY_SW_7_EDGE     HAL_KEY_FALLING_EDGE
 
 #define HAL_KEY_SW_7_IEN      IEN2  
 #define HAL_KEY_SW_7_IENBIT   BV(4) 
 #define HAL_KEY_SW_7_ICTL     P1IEN 
-#define HAL_KEY_SW_7_ICTLBIT  BV(6) 
+#define HAL_KEY_SW_7_ICTLBIT  BV(2) 
 #define HAL_KEY_SW_7_PXIFG    P1IFG 
 
 /* Joy stick move at P2.0 */
@@ -216,9 +219,12 @@ void HalKeyInit( void )
 
   /* Start with key is not configured */
   HalKeyConfigured = FALSE;
-        FUCK_TI_KEY1 = 1;
-        FUCK_TI_KEY7 = 1;
- 
+  
+        FUCK_TI_KEY1 = 0;
+        FUCK_TI_KEY7 = 0;
+        
+        PREV_KEY1 = -1;
+        PREV_KEY7 = -1;
 }
 
 
@@ -258,10 +264,13 @@ void HalKeyConfig (bool interruptEnable, halKeyCBack_t cback)
      * - Clear any pending interrupt
      */
     HAL_KEY_SW_6_ICTL |= HAL_KEY_SW_6_ICTLBIT;
-    HAL_KEY_SW_6_IEN |= HAL_KEY_SW_6_IENBIT;
-    HAL_KEY_SW_6_PXIFG = ~(HAL_KEY_SW_6_BIT);
-
-
+    //HAL_KEY_SW_6_IEN |= HAL_KEY_SW_6_IENBIT;
+    P0IE = 1;
+    HAL_KEY_SW_6_PXIFG &= ~(HAL_KEY_SW_6_BIT);
+    
+    P0INP = 0;
+    P2INP = 0x0;
+    
     PICTL &= ~(HAL_KEY_SW_7_EDGEBIT);    /* Clear the edge bit */
     /* For falling edge, the bit must be set. */
   #if (HAL_KEY_SW_7_EDGE == HAL_KEY_FALLING_EDGE)
@@ -270,7 +279,7 @@ void HalKeyConfig (bool interruptEnable, halKeyCBack_t cback)
 
     HAL_KEY_SW_7_ICTL |= HAL_KEY_SW_7_ICTLBIT;
     HAL_KEY_SW_7_IEN |= HAL_KEY_SW_7_IENBIT;
-    HAL_KEY_SW_7_PXIFG = ~(HAL_KEY_SW_7_BIT);
+    HAL_KEY_SW_7_PXIFG &= ~(HAL_KEY_SW_7_BIT);
 
 
     /* Rising/Falling edge configuratinn */
@@ -308,6 +317,7 @@ void HalKeyConfig (bool interruptEnable, halKeyCBack_t cback)
 
   /* Key now is configured */
   HalKeyConfigured = TRUE;
+  
 }
 
 
@@ -339,69 +349,46 @@ uint8 HalKeyRead ( void )
 }
 
 
-/**************************************************************************************************
- * @fn      HalKeyPoll
- *
- * @brief   Called by hal_driver to poll the keys
- *
- * @param   None
- *
- * @return  None
- **************************************************************************************************/
+
 void HalKeyPoll (void)
 {
   uint8 keys = 0;
 
-  if ((HAL_KEY_JOY_MOVE_PORT & HAL_KEY_JOY_MOVE_BIT))  /* Key is active HIGH */
+  /*
+  if ((HAL_KEY_JOY_MOVE_PORT & HAL_KEY_JOY_MOVE_BIT)) 
   {
     keys = halGetJoyKeyInput();
   }
-
-  /* If interrupts are not enabled, previous key status and current key status
-   * are compared to find out if a key has changed status.
-   */
-  if (!Hal_KeyIntEnable)
-  {
-    if (keys == halKeySavedKeys)
-    {
-      /* Exit - since no keys have changed */
-      return;
-    }
-    /* Store the current keys for comparation next time */
-    halKeySavedKeys = keys;
-  }
-  else
-  {
-    /* Key interrupt handled here */
-  }
-
+  */
 
   //if (HAL_PUSH_BUTTON1())// 靠靠靠靠靠靠
-  if( FUCK_TI_KEY1 == 0)
+  if( FUCK_TI_KEY1 == 2)
   {
-    if(!(HAL_KEY_SW_6_PORT & HAL_KEY_SW_6_BIT) )
-    {
       keys |= HAL_KEY_SW_6;
-    }
-  }else
+  }
+  if(FUCK_TI_KEY1 == 3)
   {
-    if(!!(HAL_KEY_SW_6_PORT & HAL_KEY_SW_6_BIT) )
-    {
       keys |= HAL_KEY_SW_6;
-    }
   } 
+  
+  if(FUCK_TI_KEY7 == 2)
+  {
+      keys |= HAL_KEY_SW_7;
    
-  if (!(HAL_KEY_SW_7_PORT & HAL_KEY_SW_7_BIT))    /* Key is active low *///,P1.6
-//  if( (!(P1_6)))
+  }
+  
+  if(FUCK_TI_KEY7 == 3)
   {
-    keys |= HAL_KEY_SW_7;
-  } 
-
+      keys |= HAL_KEY_SW_7;
+  }
   /* Invoke Callback if new keys were depressed */
   if (keys && (pHalKeyProcessFunction))
   {
     (pHalKeyProcessFunction) (keys, HAL_KEY_STATE_NORMAL);
   }
+  
+  FUCK_TI_KEY1 = 0;
+  FUCK_TI_KEY7 = 0;
 }
 
 /**************************************************************************************************
@@ -474,19 +461,30 @@ void halProcessKeyInterrupt (void)
 
   if (HAL_KEY_SW_6_PXIFG & HAL_KEY_SW_6_BIT)  /* Interrupt Flag has been set */
   {
-    HAL_KEY_SW_6_PXIFG = ~(HAL_KEY_SW_6_BIT); /* Clear Interrupt Flag */
+        if( PICTL & HAL_KEY_SW_6_EDGEBIT )
+        {
+                PICTL &= ~(HAL_KEY_SW_6_EDGEBIT);
+                FUCK_TI_KEY1 = 2;
+                
+        }
+        else
+        {
+                PICTL |= HAL_KEY_SW_6_EDGEBIT;
+                FUCK_TI_KEY1 = 3;
+                
+        }
     valid = TRUE;
   }
 
   if (HAL_KEY_JOY_MOVE_PXIFG & HAL_KEY_JOY_MOVE_BIT)  /* Interrupt Flag has been set */
   {
-    HAL_KEY_JOY_MOVE_PXIFG = ~(HAL_KEY_JOY_MOVE_BIT); /* Clear Interrupt Flag */
+    //HAL_KEY_JOY_MOVE_PXIFG = ~(HAL_KEY_JOY_MOVE_BIT); /* Clear Interrupt Flag */
     valid = TRUE;
   }
 
   if (HAL_KEY_SW_7_PXIFG & HAL_KEY_SW_7_BIT)  /* Interrupt Flag has been set */
   {
-    HAL_KEY_SW_7_PXIFG = ~(HAL_KEY_SW_7_BIT); /* Clear Interrupt Flag */
+    //HAL_KEY_SW_7_PXIFG = ~(HAL_KEY_SW_7_BIT); /* Clear Interrupt Flag */
     valid = TRUE;
   }
 
@@ -541,21 +539,14 @@ HAL_ISR_FUNCTION( halKeyPort0Isr, P0INT_VECTOR )
 {
   HAL_ENTER_ISR();
 
-  if (HAL_KEY_SW_6_PXIFG & HAL_KEY_SW_6_BIT)
+  if ( (HAL_KEY_SW_6_PXIFG & HAL_KEY_SW_6_BIT) &&( P0_0 != PREV_KEY1) )
   {
-        if(FUCK_TI_KEY1 == 0 )
-        {
-                PICTL &= ~(HAL_KEY_SW_6_EDGEBIT);
-                FUCK_TI_KEY1 = !FUCK_TI_KEY1;
-        }
-        else{
-                PICTL |= HAL_KEY_SW_6_EDGEBIT;
-                FUCK_TI_KEY1 = !FUCK_TI_KEY1;
-        }
 
+    PREV_KEY1 = P0_0;
+    
     halProcessKeyInterrupt();
-
-
+    
+    
   }
 
   /*
@@ -571,25 +562,21 @@ HAL_ISR_FUNCTION( halKeyPort0Isr, P0INT_VECTOR )
 
 HAL_ISR_FUNCTION( halKeyPort1Isr, P1INT_VECTOR )
 {
-
 	HAL_ENTER_ISR();
 
         if (HAL_KEY_SW_7_PXIFG & HAL_KEY_SW_7_BIT)
         {
-
-           halProcessKeyInterrupt();
-
-                if( FUCK_TI_KEY7== 0)
+                if( FUCK_TI_KEY7== 0 || FUCK_TI_KEY7 == 3)
                 {
                         PICTL &= ~(HAL_KEY_SW_7_EDGEBIT);
-                        FUCK_TI_KEY7 = !FUCK_TI_KEY7;
-                }else
+                        FUCK_TI_KEY7 = 2;
+                }else if(FUCK_TI_KEY7 == 2)
                 {
                         PICTL |= HAL_KEY_SW_7_EDGEBIT;
-                        FUCK_TI_KEY7 = !FUCK_TI_KEY7;
+                        FUCK_TI_KEY7 = 3;
                 }
-
-        } // copied from TI forums
+          halProcessKeyInterrupt();
+        } //
 
 /*
   if (HAL_KEY_SW_7_PXIFG & HAL_KEY_SW_7_BIT)
@@ -602,7 +589,6 @@ HAL_ISR_FUNCTION( halKeyPort1Isr, P1INT_VECTOR )
   HAL_KEY_CPU_PORT_1_IF = 0;
   CLEAR_SLEEP_MODE();
   HAL_EXIT_ISR();
-
 }
 
 /**************************************************************************************************
