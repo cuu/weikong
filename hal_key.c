@@ -100,9 +100,15 @@
  **************************************************************************************************/
 uint8 FUCK_TI_KEY1;
 uint8 FUCK_TI_KEY7;
+uint8 FUCK_TI_KEY2;
+uint8 FUCK_TI_KEY0;
 
-short PREV_KEY1; // 记录上一 次 中断时 ，电平位置
-short PREV_KEY7; // 同上
+
+short PREV_KEY1; // 记录上一 次 中断时 ，电平位置 // p0.0
+short PREV_KEY7; // 同上 // p1.2
+short PREV_KEY2; //p1.4
+short PREV_KEY0; // p2.0
+
 
 #define HAL_KEY_RISING_EDGE   0
 #define HAL_KEY_FALLING_EDGE  1
@@ -146,6 +152,10 @@ short PREV_KEY7; // 同上
 #define HAL_KEY_SW_7_ICTL     P1IEN 
 #define HAL_KEY_SW_7_ICTLBIT  BV(2) 
 #define HAL_KEY_SW_7_PXIFG    P1IFG 
+
+#define HAL_KEY_SW_P1_4_EDGEBIT BV(2)
+#define HAL_KEY_SW_P2_0_EDGEBIT BV(3)
+
 
 /* Joy stick move at P2.0 */
 #define HAL_KEY_JOY_MOVE_PORT   P2
@@ -213,7 +223,15 @@ void HalKeyInit( void )
   HAL_KEY_JOY_MOVE_SEL &= ~(HAL_KEY_JOY_MOVE_BIT); /* Set pin function to GPIO */
   HAL_KEY_JOY_MOVE_DIR &= ~(HAL_KEY_JOY_MOVE_BIT); /* Set pin direction to Input */
 
-
+  P1SEL &= ~BV(2);
+  P1DIR &= ~BV(2);
+  
+  P1SEL &= ~BV(4);
+  P1DIR &= ~BV(4);
+  
+  P2SEL &= ~BV(0);
+  P2DIR &= ~BV(0);
+  
   /* Initialize callback function */
   pHalKeyProcessFunction  = NULL;
 
@@ -222,11 +240,74 @@ void HalKeyInit( void )
   
         FUCK_TI_KEY1 = 0;
         FUCK_TI_KEY7 = 0;
+        FUCK_TI_KEY2 = 0;
+        FUCK_TI_KEY0 = 0;
         
         PREV_KEY1 = -1;
         PREV_KEY7 = -1;
+        PREV_KEY2 = -1;
+        PREV_KEY0 = -1;
+        
 }
 
+void guu_key_io_init( void ) // init io for switch 
+{
+    P0INP &=~BV(0); // pullup p0
+    P2INP = 0x0; // all ports pullup/pulldown 
+    
+    if(P0_0 == 0)
+    {
+      PICTL &= ~(HAL_KEY_SW_6_EDGEBIT);  
+    }else
+    {
+      PICTL |= HAL_KEY_SW_6_EDGEBIT;
+    }
+
+    
+    HAL_KEY_SW_6_ICTL |= HAL_KEY_SW_6_ICTLBIT;
+    //HAL_KEY_SW_6_IEN |= HAL_KEY_SW_6_IENBIT;
+    P0IE = 1;
+    HAL_KEY_SW_6_PXIFG &= ~(HAL_KEY_SW_6_BIT);
+    
+    PICTL &= ~(HAL_KEY_SW_7_EDGEBIT);    /* Clear the edge bit */
+    /* For falling edge, the bit must be set. */
+    if(P1_2 == 0)
+    {
+      PICTL &= ~HAL_KEY_SW_7_EDGEBIT;
+    }else
+    {
+      PICTL |= HAL_KEY_SW_7_EDGEBIT;
+    }
+
+    HAL_KEY_SW_7_ICTL |= HAL_KEY_SW_7_ICTLBIT;
+    HAL_KEY_SW_7_IEN |= HAL_KEY_SW_7_IENBIT;
+    HAL_KEY_SW_7_PXIFG &= ~(HAL_KEY_SW_7_BIT);
+
+    
+    if(P1_4 ==0)
+    {
+      PICTL &= ~HAL_KEY_SW_P1_4_EDGEBIT;
+    }else
+    {
+      PICTL |= HAL_KEY_SW_P1_4_EDGEBIT;
+    }
+    P1IEN |= BV(4);
+    IEN2 |= HAL_KEY_SW_7_IENBIT;
+    P1IFG &= ~(BV(4));
+    
+    if(P2_0 == 0)
+    {
+      PICTL &= ~HAL_KEY_SW_P2_0_EDGEBIT;
+    }
+    else
+    {
+      PICTL |= HAL_KEY_SW_P2_0_EDGEBIT;
+    }
+    P2IEN |= BV(0);
+    IEN2 |= BV(1);
+    P2IFG &= ~(BV(0));
+      
+}
 
 /**************************************************************************************************
  * @fn      HalKeyConfig
@@ -249,58 +330,8 @@ void HalKeyConfig (bool interruptEnable, halKeyCBack_t cback)
   /* Determine if interrupt is enable or not */
   if (Hal_KeyIntEnable)
   {
-    /* Rising/Falling edge configuratinn */
-
-    PICTL &= ~(HAL_KEY_SW_6_EDGEBIT);    /* Clear the edge bit */
-    /* For falling edge, the bit must be set. */
-  #if (HAL_KEY_SW_6_EDGE == HAL_KEY_FALLING_EDGE)
-    PICTL |= HAL_KEY_SW_6_EDGEBIT;
-  #endif
-
-
-    /* Interrupt configuration:
-     * - Enable interrupt generation at the port
-     * - Enable CPU interrupt
-     * - Clear any pending interrupt
-     */
-    HAL_KEY_SW_6_ICTL |= HAL_KEY_SW_6_ICTLBIT;
-    //HAL_KEY_SW_6_IEN |= HAL_KEY_SW_6_IENBIT;
-    P0IE = 1;
-    HAL_KEY_SW_6_PXIFG &= ~(HAL_KEY_SW_6_BIT);
+    guu_key_io_init();
     
-    P0INP = 0;
-    P2INP = 0x0;
-    
-    PICTL &= ~(HAL_KEY_SW_7_EDGEBIT);    /* Clear the edge bit */
-    /* For falling edge, the bit must be set. */
-  #if (HAL_KEY_SW_7_EDGE == HAL_KEY_FALLING_EDGE)
-    PICTL |= HAL_KEY_SW_7_EDGEBIT;
-  #endif
-
-    HAL_KEY_SW_7_ICTL |= HAL_KEY_SW_7_ICTLBIT;
-    HAL_KEY_SW_7_IEN |= HAL_KEY_SW_7_IENBIT;
-    HAL_KEY_SW_7_PXIFG &= ~(HAL_KEY_SW_7_BIT);
-
-
-    /* Rising/Falling edge configuratinn */
-
-    HAL_KEY_JOY_MOVE_ICTL &= ~(HAL_KEY_JOY_MOVE_EDGEBIT);    /* Clear the edge bit */
-    /* For falling edge, the bit must be set. */
-  #if (HAL_KEY_JOY_MOVE_EDGE == HAL_KEY_FALLING_EDGE)
-    HAL_KEY_JOY_MOVE_ICTL |= HAL_KEY_JOY_MOVE_EDGEBIT;
-  #endif
-
-
-    /* Interrupt configuration:
-     * - Enable interrupt generation at the port
-     * - Enable CPU interrupt
-     * - Clear any pending interrupt
-     */
-    HAL_KEY_JOY_MOVE_ICTL |= HAL_KEY_JOY_MOVE_ICTLBIT;
-    HAL_KEY_JOY_MOVE_IEN |= HAL_KEY_JOY_MOVE_IENBIT;
-    HAL_KEY_JOY_MOVE_PXIFG = ~(HAL_KEY_JOY_MOVE_BIT);
-
-
     /* Do this only after the hal_key is configured - to work with sleep stuff */
     if (HalKeyConfigured == TRUE)
     {
@@ -361,26 +392,25 @@ void HalKeyPoll (void)
   }
   */
 
-  //if (HAL_PUSH_BUTTON1())// 靠靠靠靠靠靠
-  if( FUCK_TI_KEY1 == 2)
+  //if (HAL_PUSH_BUTTON1())
+  if( FUCK_TI_KEY1 == 2 || FUCK_TI_KEY1 == 3) //P0.0
   {
       keys |= HAL_KEY_SW_6;
   }
-  if(FUCK_TI_KEY1 == 3)
-  {
-      keys |= HAL_KEY_SW_6;
-  } 
   
-  if(FUCK_TI_KEY7 == 2)
-  {
-      keys |= HAL_KEY_SW_7;
-   
-  }
-  
-  if(FUCK_TI_KEY7 == 3)
+  if(FUCK_TI_KEY7 == 2 || FUCK_TI_KEY7 == 3) //P1.2
   {
       keys |= HAL_KEY_SW_7;
   }
+  if(FUCK_TI_KEY2 == 2 || FUCK_TI_KEY2 == 3)// P1.4
+  {
+      keys |= HAL_KEY_SW_4;
+  }
+  if(FUCK_TI_KEY0 == 2 || FUCK_TI_KEY0 == 3) //P2.0
+  {
+      keys |= HAL_KEY_SW_5;
+  }
+  
   /* Invoke Callback if new keys were depressed */
   if (keys && (pHalKeyProcessFunction))
   {
@@ -389,6 +419,8 @@ void HalKeyPoll (void)
   
   FUCK_TI_KEY1 = 0;
   FUCK_TI_KEY7 = 0;
+  FUCK_TI_KEY2 = 0;
+  FUCK_TI_KEY0 = 0;
 }
 
 /**************************************************************************************************
@@ -461,7 +493,8 @@ void halProcessKeyInterrupt (void)
 
   if (HAL_KEY_SW_6_PXIFG & HAL_KEY_SW_6_BIT)  /* Interrupt Flag has been set */
   {
-        if( PICTL & HAL_KEY_SW_6_EDGEBIT )
+        //if( PICTL & HAL_KEY_SW_6_EDGEBIT )
+        if(P0_0 == 0)
         {
                 PICTL &= ~(HAL_KEY_SW_6_EDGEBIT);
                 FUCK_TI_KEY1 = 2;
@@ -488,6 +521,12 @@ void halProcessKeyInterrupt (void)
     valid = TRUE;
   }
 
+  if (HAL_KEY_SW_7_PXIFG & BV(4) )  
+  {
+    //HAL_KEY_SW_7_PXIFG = ~(BV(4)); 
+    valid = TRUE;
+  }
+  
   if (valid)
   {
     osal_start_timerEx (Hal_TaskID, HAL_KEY_EVENT, HAL_KEY_DEBOUNCE_VALUE);
@@ -564,20 +603,38 @@ HAL_ISR_FUNCTION( halKeyPort1Isr, P1INT_VECTOR )
 {
 	HAL_ENTER_ISR();
 
-        if (HAL_KEY_SW_7_PXIFG & HAL_KEY_SW_7_BIT)
+        if ( (HAL_KEY_SW_7_PXIFG & HAL_KEY_SW_7_BIT) &&( P1_2 != PREV_KEY7) )
         {
-                if( FUCK_TI_KEY7== 0 || FUCK_TI_KEY7 == 3)
+                //if( FUCK_TI_KEY7== 0 || FUCK_TI_KEY7 == 3)
+                if(P1_2 == 0)
                 {
                         PICTL &= ~(HAL_KEY_SW_7_EDGEBIT);
                         FUCK_TI_KEY7 = 2;
-                }else if(FUCK_TI_KEY7 == 2)
+                }else // if(FUCK_TI_KEY7 == 2)
                 {
                         PICTL |= HAL_KEY_SW_7_EDGEBIT;
                         FUCK_TI_KEY7 = 3;
                 }
+          PREV_KEY7 = P1_2;
           halProcessKeyInterrupt();
-        } //
+        } 
 
+        if ( (HAL_KEY_SW_7_PXIFG & BV(4) ) &&( P1_4 != PREV_KEY2) )
+        {
+                //if( FUCK_TI_KEY7== 0 || FUCK_TI_KEY7 == 3)
+                if(P1_4 == 0)
+                {
+                        PICTL &= ~(HAL_KEY_SW_P1_4_EDGEBIT);
+                        FUCK_TI_KEY2 = 2;
+                }else // if(FUCK_TI_KEY7 == 2)
+                {
+                        PICTL |= HAL_KEY_SW_P1_4_EDGEBIT;
+                        FUCK_TI_KEY2 = 3;
+                }
+          PREV_KEY2 = P1_4;      
+          halProcessKeyInterrupt();
+        } 
+        
 /*
   if (HAL_KEY_SW_7_PXIFG & HAL_KEY_SW_7_BIT)
   {
@@ -604,9 +661,21 @@ HAL_ISR_FUNCTION( halKeyPort2Isr, P2INT_VECTOR )
 {
   HAL_ENTER_ISR();
   
-  if (HAL_KEY_JOY_MOVE_PXIFG & HAL_KEY_JOY_MOVE_BIT)
+  if ( (HAL_KEY_JOY_MOVE_PXIFG & HAL_KEY_JOY_MOVE_BIT ) && (P2_0 != PREV_KEY0) )
   {
+    
+    if(P2_0 == 0)
+    {
+        PICTL &= ~(HAL_KEY_SW_P2_0_EDGEBIT);
+        FUCK_TI_KEY0 = 2;
+    }else // if(FUCK_TI_KEY7 == 2)
+    {
+        PICTL |= HAL_KEY_SW_P2_0_EDGEBIT;
+        FUCK_TI_KEY0 = 3;
+    }
+    PREV_KEY0 = P2_0;    
     halProcessKeyInterrupt();
+
   }
 
   /*
